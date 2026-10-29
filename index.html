@@ -12,214 +12,415 @@
 <meta property="og:image" content="https://djihad-elhak.github.io/og.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="preload" href="fonts/instrument-sans-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/newsreader-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/ibm-plex-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 
-<header class="hero">
-  <nav class="top" aria-label="Sections">
-    <a class="mark" href="#top" aria-label="Djoud El Hak Belkhir, back to top">DB</a>
-    <ul>
-      <li><a href="#work">Work</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#education">Education</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
-  <div class="hero-text" id="top">
-    <h1>Djoud El&nbsp;Hak Belkhir</h1>
-    <p class="role">AI engineering student. I build computer vision, model compression and on-premise LLM systems, and I measure whether they work.</p>
-    <p class="target"><span class="box">Looking for a 6-month end-of-studies internship (PFE) in AI or data science, from February&nbsp;2027.</span></p>
-    <ul class="links">
-      <li><a class="button" href="mailto:djoudelhak@gmail.com">Email me</a></li>
-      <li><a href="https://www.linkedin.com/in/djoud-el-hak-belkhir-055977223/" rel="noopener">LinkedIn</a></li>
-      <li><a href="https://github.com/djihad-elhak" rel="noopener">GitHub</a></li>
-      <li><a href="https://www.kaggle.com/djihadelhakbelkhir" rel="noopener">Kaggle</a></li>
-    </ul>
+<header class="masthead">
+  <div class="wrap masthead-row">
+    <a class="masthead-name" href="#top">Djoud El Hak Belkhir</a>
+    <nav aria-label="Sections">
+      <ul>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <p class="masthead-meta">Portfolio, 2026</p>
   </div>
 </header>
 
 <main id="main">
 
-<section class="about" aria-labelledby="about-title">
-  <h2 id="about-title">About</h2>
-  <div class="about-grid">
-    <p class="lead">I am in the Master 2 Data, Knowledge and Hybrid AI at Université Paris-Saclay, after an engineering degree in AI and data science at ESTIN, where I ranked 6th of my class. My research internship at CERIST took a detection and tracking pipeline from noisy clinical video to an offline desktop tool validated against a reference system. I like projects where the model is only half of the work: the data, the evaluation and the deployment matter as much.</p>
-    <dl class="facts">
-      <dt>Based in</dt><dd>Paris area, Île-de-France</dd>
-      <dt>Available</dt><dd>6 months from February 2027</dd>
-      <dt>Interested in</dt><dd>Computer vision, applied ML research, LLM systems, data engineering; open to a CIFRE PhD afterwards</dd>
-      <dt>Languages</dt><dd>Arabic (native), French (C1), English (fluent)</dd>
+<section class="intro wrap" id="top" aria-labelledby="name">
+  <div class="intro-text">
+    <p class="kicker">AI and data science · M2 at Université Paris-Saclay</p>
+    <h1 id="name">Djoud El&nbsp;Hak Belkhir</h1>
+    <p class="standfirst">I build computer vision, model compression and on-premise LLM systems, and I spend as much time measuring them as building them: what each design choice was worth, where the model fails, and what it costs to run.</p>
+  </div>
+  <div class="spec">
+    <h2 class="spec-title">Looking for</h2>
+    <dl>
+      <dt>Internship</dt><dd>End-of-studies (PFE), 6 months</dd>
+      <dt>From</dt><dd>February 2027</dd>
+      <dt>Where</dt><dd>Paris area, Île-de-France</dd>
+      <dt>Fields</dt><dd>Computer vision, applied ML, LLM systems, data</dd>
+      <dt>After</dt><dd>Open to a CIFRE PhD</dd>
     </dl>
+    <ul class="spec-links">
+      <li><a href="mailto:djoudelhak@gmail.com">djoudelhak@gmail.com</a></li>
+      <li><a href="https://www.linkedin.com/in/djoud-el-hak-belkhir-055977223/" rel="noopener">LinkedIn</a></li>
+      <li><a href="https://github.com/djihad-elhak" rel="noopener">GitHub</a></li>
+      <li><a href="https://www.kaggle.com/djihadelhakbelkhir" rel="noopener">Kaggle</a></li>
+    </ul>
   </div>
 </section>
+
+<figure class="plate plate-hero wrap">
+  <a href="img/andrology-signin.webp"><img src="img/andrology-signin.webp" width="1600" height="884" alt="Sign-in screen of the Andrology Console: a form on the left, and on the right a rendered microscope with motility readings beside the stage."></a>
+  <figcaption><span class="fig">Fig. 1</span> Andrology Console, the offline desktop application I built around the SpermNet detector during my research internship at CERIST.</figcaption>
+</figure>
 
 <section class="work" id="work" aria-labelledby="work-title">
-  <h2 id="work-title">Selected work</h2>
-
-  <article class="project feature">
-    <div class="project-head">
-      <h3>On-premise GenAI platform for flight software</h3>
-      <p class="when">2026, personal research project</p>
+  <div class="wrap">
+    <div class="section-head">
+      <p class="label">01</p>
+      <h2 id="work-title">Selected work</h2>
     </div>
-    <p>A platform an embedded software team can run on its own GPUs, built and measured on NASA's F´ flight framework: a knowledge graph of the code and its 560 requirements served over MCP, a LangGraph agent that writes requirement-tagged unit tests and proves them with the real build, the tests and mutation testing, a GPU sizing model calibrated on measured runs, and a web console engineers can use on site. Written up as a 6-page IEEE-style paper.</p>
-    <ul class="results">
-      <li><span class="box"><b>21 of 28</b> traceability gaps closed with verified tests</span></li>
-      <li><span class="box"><b>0.609</b> MAP for requirement-to-test retrieval</span></li>
-      <li><span class="box"><b>±11%</b> sizing error on decode throughput</span></li>
-    </ul>
-    <p class="stack">Python, LangGraph, MCP, llama.cpp, vLLM, hybrid retrieval, Docker, GitHub Actions, Kaggle 2× T4</p>
-    <p class="project-links">
-      <a href="https://djihad-elhak.github.io/onprem-genai-embedded/">Live demo</a>
-      <a href="https://github.com/djihad-elhak/onprem-genai-embedded">Code</a>
-      <a href="https://github.com/djihad-elhak/onprem-genai-embedded/blob/main/paper/main.pdf">Paper</a>
-    </p>
-  </article>
-
-  <div class="project-row">
-    <article class="project">
-      <div class="project-head">
-        <h3>Feature distillation of a mobile vision-language model</h3>
-        <p class="when">2026, team of 4, my part: feature distillation</p>
-      </div>
-      <p>Compressing MobileVLM V2 7B into its 3B sibling for phones. The student, adapted with LoRA, learns to answer GQA questions and to reproduce the teacher's hidden states on the answer and on the visual tokens. Evaluated with bootstrap tests, calibration and CKA, including where it did not help.</p>
-      <ul class="results">
-        <li><span class="box"><b>96.8%</b> of the teacher's accuracy with 2.3× fewer parameters</span></li>
-        <li><span class="box"><b>0.92</b> CKA alignment with the teacher on visual tokens, up from 0.48</span></li>
-      </ul>
-      <p class="stack">PyTorch, Hugging Face, LoRA, GQA, Kaggle 2× T4</p>
-      <p class="project-links">
-        <a href="https://github.com/djihad-elhak/Feature-Knowledge-Distilliation">Code</a>
-        <a href="https://www.kaggle.com/datasets/djihadelhakbelkhir/kd-vlm-continue">Results on Kaggle</a>
-      </p>
-    </article>
-
-    <article class="project">
-      <div class="project-head">
-        <h3>ViT-RealWaste and TrashGo</h3>
-        <p class="when">2026, personal project</p>
-      </div>
-      <p>A leakage-aware comparison of a Vision Transformer against three CNNs for landfill waste classification, then the product side: an ONNX export running entirely on the phone in a Flutter app that turns a correct classification into rewards.</p>
-      <ul class="results">
-        <li><span class="box"><b>93.86%</b> macro-F1 for ViT-B/16 on 481 held-out images</span></li>
-      </ul>
-      <p class="stack">PyTorch, ViT, DenseNet, MobileNetV2, VGG-16, Inception V3, ONNX Runtime, Flutter</p>
-      <p class="project-links">
-        <a href="https://github.com/djihad-elhak/waste-net">Code</a>
-      </p>
-    </article>
   </div>
 
-  <h3 class="more-title">Also built</h3>
-  <ul class="more">
-    <li>
-      <h4>Commercia</h4>
-      <p>Founder of a 3-person startup project: one e-commerce platform for Algerian sellers with storefront, local delivery, CRM and ERP. Prototype incubated at ESTIN Up and presented at the Global Entrepreneurship Week exhibition.</p>
-    </li>
-    <li>
-      <h4><a href="https://github.com/djihad-elhak/tabibi_dz">Tabibi DZ</a></h4>
-      <p>Backend of a doctor appointment platform for Algeria: search, booking, teleconsultation rooms and national ID parsing. Django REST, MySQL, Docker, CI, deployed on Render.</p>
-    </li>
-    <li>
-      <h4><a href="https://github.com/djihad-elhak/AutoCare">AutoCare</a></h4>
-      <p>Booking and repair-tracking API for a car workshop, with staff workflows and an admin back office. Django REST, MySQL.</p>
-    </li>
-    <li>
-      <h4><a href="https://github.com/djihad-elhak/crous">CROUS housing monitor</a></h4>
-      <p>Watches a student housing search with headless Chrome and sends a Telegram alert with a screenshot when a new listing appears. Runs on GitHub Actions.</p>
-    </li>
-    <li>
-      <h4>Data warehouse</h4>
-      <p>Academic project: a data warehouse and its ETL chain on real data, then OLAP analysis. Talend, SQL.</p>
-    </li>
-  </ul>
+  <ol class="index wrap" aria-label="Projects on this page">
+    <li><a href="#spermnet"><span class="index-n">1.1</span><span class="index-t">SpermNet and the Andrology Console</span><span class="index-d">Vision, medical video</span><span class="index-y">2025–26</span></a></li>
+    <li><a href="#oge"><span class="index-n">1.2</span><span class="index-t">On-premise GenAI platform for flight software</span><span class="index-d">LLM systems</span><span class="index-y">2026</span></a></li>
+    <li><a href="#waste"><span class="index-n">1.3</span><span class="index-t">ViT-RealWaste and TrashGo</span><span class="index-d">Vision, on-device</span><span class="index-y">2026</span></a></li>
+    <li><a href="#kd"><span class="index-n">1.4</span><span class="index-t">Feature distillation of a vision-language model</span><span class="index-d">Model compression</span><span class="index-y">2026</span></a></li>
+    <li><a href="#dztabib"><span class="index-n">1.5</span><span class="index-t">DZ-Tabib</span><span class="index-d">Web platform</span><span class="index-y"></span></a></li>
+    <li><a href="#autocare"><span class="index-n">1.6</span><span class="index-t">AutoCare</span><span class="index-d">Web platform</span><span class="index-y"></span></a></li>
+  </ol>
+
+  <!-- 1.1 SpermNet -->
+  <article class="case wrap" id="spermnet" aria-labelledby="spermnet-title">
+    <header class="case-head">
+      <p class="case-n">1.1</p>
+      <div>
+        <h3 id="spermnet-title">SpermNet: sperm motility analysis on two CPU cores</h3>
+        <p class="case-lede">A clinician reads motility as a ratio, so every false detection counts as an immotile cell. Over seven months I took a heavy YOLO11m and DeepSORT baseline and rebuilt it around that number: a detector 53 times smaller, a tracker that needs no appearance model, a calibration that was measured instead of assumed, and a desktop application a laboratory can run without a GPU.</p>
+      </div>
+    </header>
+    <div class="case-body">
+      <dl class="meta">
+        <dt>Context</dt><dd>Research internship, CERIST, Data Science Unit</dd>
+        <dt>Period</dt><dd>Sept. 2025 to Mar. 2026</dd>
+        <dt>Output</dt><dd>Desktop application, single-author preprint in preparation</dd>
+        <dt>Stack</dt><dd>PyTorch, OpenCV, ONNX Runtime, NumPy, FastAPI, Electron, React, TypeScript</dd>
+      </dl>
+      <div class="prose">
+        <p>Heads are about 10 pixels wide and up to 218 of them share a frame, so I designed SpermNet for that scale: a 375,621-parameter U-shaped network with a stride-2 centre-point output and a three-channel input (the frame, its difference from the clip's temporal median, and the temporal gradient). Tracking is gated by motion alone. A stage-micrometer test then showed that estimating the scale from head length was off by 38.7%, so velocities now come from the optical train, and a scale-free criterion reproduces the three-class report within 1.5 points without any scale.</p>
+        <p>The engine is exported to ONNX with verified numerical parity and runs behind FastAPI inside an Electron application: worklist, overlay review against the original video, calibration management, reports in PDF, CSV and Excel in English and French, roles and a hash-chained audit log.</p>
+        <table class="results">
+          <caption>Measured on 15 recordings and 2,410 hand-labelled objects, five-fold cross-validation grouped by video</caption>
+          <thead><tr><th scope="col">Measure</th><th scope="col">SpermNet</th><th scope="col">Baseline</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Detection F1</th><td>0.769</td><td>0.690, tuned YOLO11m<sup>a</sup></td></tr>
+            <tr><th scope="row">Tracking IDF1, same tracker</th><td>0.724</td><td>0.621</td></tr>
+            <tr><th scope="row">Bias on the motile fraction</th><td>−1.6 pts</td><td>−11.1 pts</td></tr>
+            <tr><th scope="row">Parameters</th><td>0.38 M</td><td>20.05 M</td></tr>
+            <tr><th scope="row">CPU time per one-second clip</th><td>10.4 s</td><td>195 s, first version</td></tr>
+          </tbody>
+        </table>
+        <p class="note"><sup>a</sup> Trained under a different protocol. 95% CI for SpermNet's F1: 0.684 to 0.824. One laboratory, five men and one annotator; external validation is still to do.</p>
+      </div>
+    </div>
+    <div class="gallery">
+      <figure class="plate span-full">
+        <a href="img/andrology-result.webp"><img src="img/andrology-result.webp" width="1600" height="869" loading="lazy" alt="Analysis result screen: concentration and motility results against WHO reference ranges, motility by class, the field recording and a frame with tracked cells."></a>
+        <figcaption><span class="fig">Fig. 2</span> An analysis result: values against reference ranges, motility by class and the tracked recording. Patient identifiers blurred.</figcaption>
+      </figure>
+      <figure class="plate">
+        <a href="img/andrology-calibration.webp"><img src="img/andrology-calibration.webp" width="1600" height="872" loading="lazy" alt="Calibration screen: a stage micrometer image, graticule and optical path inputs, and three readings with their spread."></a>
+        <figcaption><span class="fig">Fig. 3</span> Stage-micrometer calibration. Readings that disagree more than marking error can explain are flagged.</figcaption>
+      </figure>
+      <figure class="plate">
+        <a href="img/andrology-velocity.webp"><img src="img/andrology-velocity.webp" width="933" height="797" loading="lazy" alt="Motility by velocity panel: a stacked bar of static, slow, medium and rapid cells, and a table of kinematics by class."></a>
+        <figcaption><span class="fig">Fig. 4</span> Motility by velocity and kinematics by class.</figcaption>
+      </figure>
+    </div>
+  </article>
+
+  <!-- 1.2 oge -->
+  <article class="case wrap" id="oge" aria-labelledby="oge-title">
+    <header class="case-head">
+      <p class="case-n">1.2</p>
+      <div>
+        <h3 id="oge-title">On-premise GenAI platform for flight software</h3>
+        <p class="case-lede">A platform an embedded software team can run on its own GPUs, built and measured on NASA's F´ flight framework. An agent writes the missing requirement-tagged unit tests, and a test only counts once the real build, the test run and mutation testing prove it, and an engineer accepts it.</p>
+      </div>
+    </header>
+    <div class="case-body">
+      <dl class="meta">
+        <dt>Context</dt><dd>Personal research project</dd>
+        <dt>Period</dt><dd>2026</dd>
+        <dt>Output</dt><dd>Code, live demo, 6-page paper</dd>
+        <dt>Stack</dt><dd>Python, LangGraph, MCP, llama.cpp, vLLM, hybrid retrieval, Docker, GitHub Actions</dd>
+      </dl>
+      <div class="prose">
+        <p>The code and its 560 requirements are loaded into a knowledge graph served over the Model Context Protocol. A LangGraph agent works through the traceability gaps one at a time on its own branch, a GPU sizing model calibrated on measured runs says how many GPUs a team needs, and a web console puts it in front of engineers.</p>
+        <table class="results">
+          <caption>Benchmark on F´ v4.4.1, models run on Kaggle 2× T4</caption>
+          <thead><tr><th scope="col">Measure</th><th scope="col">Result</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Traceability gaps closed with verified tests</th><td>21 of 28</td></tr>
+            <tr><th scope="row">Requirement-to-test retrieval</th><td>0.609 MAP</td></tr>
+            <tr><th scope="row">Sizing error on decode throughput</th><td>±11%</td></tr>
+          </tbody>
+        </table>
+        <p class="links-row">
+          <a href="https://djihad-elhak.github.io/onprem-genai-embedded/">Live demo</a>
+          <a href="https://github.com/djihad-elhak/onprem-genai-embedded">Code</a>
+          <a href="https://github.com/djihad-elhak/onprem-genai-embedded/blob/main/paper/main.pdf">Paper</a>
+        </p>
+      </div>
+    </div>
+    <div class="gallery">
+      <figure class="plate span-full">
+        <a href="img/oge-overview.webp"><img src="img/oge-overview.webp" width="1600" height="1000" loading="lazy" alt="Console overview: counts of requirements cited by a test, generated, still without evidence and verified otherwise, and a grid of requirements by component."></a>
+        <figcaption><span class="fig">Fig. 5</span> Traceability of the code base, one mark per requirement.</figcaption>
+      </figure>
+      <figure class="plate">
+        <a href="img/oge-run.webp"><img src="img/oge-run.webp" width="1600" height="1000" loading="lazy" alt="Agent run page: each requirement goes through baseline, context, model, policy, build, test, commit and mutant steps."></a>
+        <figcaption><span class="fig">Fig. 6</span> An agent run, step by step: context, model answer, policy check, build, test, commit, seeded bugs.</figcaption>
+      </figure>
+      <figure class="plate">
+        <a href="img/oge-review.webp"><img src="img/oge-review.webp" width="1600" height="1000" loading="lazy" alt="Review page in the dark theme: a queue of generated tests on the left and the selected test's requirement and code on the right."></a>
+        <figcaption><span class="fig">Fig. 7</span> The review queue where an engineer accepts or rejects each generated test.</figcaption>
+      </figure>
+    </div>
+  </article>
+
+  <!-- 1.3 waste -->
+  <article class="case wrap" id="waste" aria-labelledby="waste-title">
+    <header class="case-head">
+      <p class="case-n">1.3</p>
+      <div>
+        <h3 id="waste-title">ViT-RealWaste and TrashGo</h3>
+        <p class="case-lede">A leakage-aware comparison of a Vision Transformer against three CNNs for landfill waste classification, then the product around it: the model exported to ONNX and run entirely on the phone in a Flutter app that turns a correct classification into rewards.</p>
+      </div>
+    </header>
+    <div class="case-body">
+      <dl class="meta">
+        <dt>Context</dt><dd>Personal project</dd>
+        <dt>Period</dt><dd>2026</dd>
+        <dt>Stack</dt><dd>PyTorch, ViT, DenseNet, MobileNetV2, VGG-16, Inception V3, ONNX Runtime, Flutter</dd>
+      </dl>
+      <div class="prose">
+        <table class="results">
+          <caption>RealWaste, held-out test set</caption>
+          <thead><tr><th scope="col">Measure</th><th scope="col">Result</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">ViT-B/16 macro-F1 on 481 held-out images</th><td>93.86%</td></tr>
+          </tbody>
+        </table>
+        <p class="links-row"><a href="https://github.com/djihad-elhak/waste-net">Code</a></p>
+      </div>
+    </div>
+    <figure class="phones">
+      <ul>
+        <li><a href="img/trashgo-scan.webp"><img src="img/trashgo-scan.webp" width="199" height="433" loading="lazy" alt="Camera screen: a plastic bottle in the frame, labelled Plastic bottle, 92%."></a></li>
+        <li><a href="img/trashgo-home.webp"><img src="img/trashgo-home.webp" width="209" height="454" loading="lazy" alt="Home screen with a start claiming button, claims, streak and rank."></a></li>
+        <li><a href="img/trashgo-map.webp"><img src="img/trashgo-map.webp" width="204" height="443" loading="lazy" alt="Map of nearby claims with pending items."></a></li>
+        <li><a href="img/trashgo-ranking.webp"><img src="img/trashgo-ranking.webp" width="231" height="502" loading="lazy" alt="Leaderboard with a podium and ranked users."></a></li>
+      </ul>
+      <figcaption><span class="fig">Fig. 8</span> TrashGo. The scanning screen runs the classifier on the phone before a claim is accepted; claims feed the map, streaks and leaderboard.</figcaption>
+    </figure>
+  </article>
+
+  <!-- 1.4 KD -->
+  <article class="case case-compact wrap" id="kd" aria-labelledby="kd-title">
+    <header class="case-head">
+      <p class="case-n">1.4</p>
+      <div>
+        <h3 id="kd-title">Feature distillation of a mobile vision-language model</h3>
+        <p class="case-lede">Compressing MobileVLM V2 7B into its 3B sibling for phones. The student, adapted with LoRA, learns to answer GQA questions and to reproduce the teacher's hidden states on the answer and on the visual tokens. Evaluated with bootstrap tests, calibration and CKA, including where it did not help.</p>
+      </div>
+    </header>
+    <div class="case-body">
+      <dl class="meta">
+        <dt>Context</dt><dd>Team of 4; my part: feature distillation</dd>
+        <dt>Period</dt><dd>2026</dd>
+        <dt>Stack</dt><dd>PyTorch, Hugging Face, LoRA, GQA, Kaggle 2× T4</dd>
+      </dl>
+      <div class="prose">
+        <table class="results">
+          <caption>GQA</caption>
+          <thead><tr><th scope="col">Measure</th><th scope="col">Result</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Accuracy kept from the 7B teacher, with 2.3× fewer parameters</th><td>96.8%</td></tr>
+            <tr><th scope="row">CKA alignment with the teacher on visual tokens</th><td>0.92, from 0.48</td></tr>
+          </tbody>
+        </table>
+        <p class="links-row">
+          <a href="https://github.com/djihad-elhak/Feature-Knowledge-Distilliation">Code</a>
+          <a href="https://www.kaggle.com/datasets/djihadelhakbelkhir/kd-vlm-continue">Results on Kaggle</a>
+        </p>
+      </div>
+    </div>
+  </article>
+
+  <!-- 1.5 DZ-Tabib -->
+  <article class="case wrap" id="dztabib" aria-labelledby="dztabib-title">
+    <header class="case-head">
+      <p class="case-n">1.5</p>
+      <div>
+        <h3 id="dztabib-title">DZ-Tabib</h3>
+        <p class="case-lede">A doctor appointment platform for Algeria: search by specialty, wilaya, insurance and availability, booking, teleconsultation rooms and national ID parsing. I built the backend.</p>
+      </div>
+    </header>
+    <div class="case-body">
+      <dl class="meta">
+        <dt>Stack</dt><dd>Django REST, MySQL, Docker, CI, deployed on Render</dd>
+      </dl>
+      <div class="prose">
+        <p class="links-row"><a href="https://github.com/djihad-elhak/tabibi_dz">Code</a></p>
+      </div>
+    </div>
+    <div class="gallery">
+      <figure class="plate span-full">
+        <a href="img/dztabib-home.webp"><img src="img/dztabib-home.webp" width="1600" height="864" loading="lazy" alt="DZ-Tabib landing page: the headline Meet the Best Doctors, a button to make an appointment and a photo of a doctor."></a>
+        <figcaption><span class="fig">Fig. 9</span> Landing page.</figcaption>
+      </figure>
+      <figure class="plate">
+        <a href="img/dztabib-search.webp"><img src="img/dztabib-search.webp" width="1079" height="872" loading="lazy" alt="Doctor search with filters for specialty, wilaya, insurance and availability, and a list of doctors."></a>
+        <figcaption><span class="fig">Fig. 10</span> Search with filters.</figcaption>
+      </figure>
+      <figure class="plate">
+        <a href="img/dztabib-booking.webp"><img src="img/dztabib-booking.webp" width="880" height="918" loading="lazy" alt="Booking screen: a December 2024 calendar and half-hour time slots."></a>
+        <figcaption><span class="fig">Fig. 11</span> Booking a slot.</figcaption>
+      </figure>
+    </div>
+  </article>
+
+  <!-- 1.6 AutoCare -->
+  <article class="case wrap" id="autocare" aria-labelledby="autocare-title">
+    <header class="case-head">
+      <p class="case-n">1.6</p>
+      <div>
+        <h3 id="autocare-title">AutoCare</h3>
+        <p class="case-lede">Booking and repair tracking for a car workshop: customers book a rendez-vous, staff move each car through arrived, repaired or unrepairable, and an admin back office manages the rest.</p>
+      </div>
+    </header>
+    <div class="case-body">
+      <dl class="meta">
+        <dt>Stack</dt><dd>Django REST, MySQL, Figma</dd>
+      </dl>
+      <div class="prose">
+        <p class="links-row">
+          <a href="https://github.com/djihad-elhak/AutoCare">Code</a>
+          <a href="https://www.figma.com/file/MwRsp9bNBfrbHmAETpBvhf/Projet-%28copie%29?node-id=0%3A1" rel="noopener">Figma design</a>
+        </p>
+      </div>
+    </div>
+    <div class="gallery">
+      <figure class="plate">
+        <a href="img/autocare-home.webp"><img src="img/autocare-home.webp" width="1600" height="900" loading="lazy" alt="AutoCare landing page: an overhead photo of mechanics at work with the headline Revitalize Your Ride with Expert Care."></a>
+        <figcaption><span class="fig">Fig. 12</span> Landing page.</figcaption>
+      </figure>
+      <figure class="plate">
+        <a href="img/autocare-orders.webp"><img src="img/autocare-orders.webp" width="1600" height="739" loading="lazy" alt="Staff view of recent orders with car model, date and plate; client names and phone numbers are blurred."></a>
+        <figcaption><span class="fig">Fig. 13</span> Staff view of recent orders. Names and phone numbers blurred.</figcaption>
+      </figure>
+    </div>
+  </article>
+
+  <div class="wrap also">
+    <h3 class="also-title">Also built</h3>
+    <ul>
+      <li><h4>Commercia</h4><p>Founder of a 3-person startup project: one e-commerce platform for Algerian sellers with storefront, local delivery, CRM and ERP. Incubated at ESTIN Up, presented at the Global Entrepreneurship Week exhibition.</p></li>
+      <li><h4><a href="https://github.com/djihad-elhak/crous">CROUS housing monitor</a></h4><p>Watches a student housing search with headless Chrome and sends a Telegram alert with a screenshot when a new listing appears. Runs on GitHub Actions.</p></li>
+      <li><h4>Data warehouse</h4><p>Academic project: a data warehouse and its ETL chain on real data, then OLAP analysis. Talend, SQL.</p></li>
+    </ul>
+  </div>
 </section>
 
-<section class="experience" id="experience" aria-labelledby="exp-title">
-  <h2 id="exp-title">Experience</h2>
-  <ol class="timeline">
+<section class="ledger-section wrap" id="experience" aria-labelledby="exp-title">
+  <div class="section-head">
+    <p class="label">02</p>
+    <h2 id="exp-title">Experience</h2>
+  </div>
+  <ol class="ledger">
     <li>
-      <p class="date">Sept. 2025 to Mar. 2026, 7 months</p>
-      <h3>Research intern, computer vision for medical imaging</h3>
-      <p class="org">CERIST, Data Science Unit, Algeria</p>
-      <ul>
-        <li>Built a pipeline for automated sperm motility analysis: YOLO detection, DeepSORT tracking, kinematic metrics and motility grades inspired by the WHO manual.</li>
-        <li>Designed an adaptive scale estimator so the measurements survive clinical variability: resolution, frame rate, blur and occlusions.</li>
-        <li>Packaged the engine in an Electron.js desktop application that runs offline on a standard PC.</li>
-        <li>Validated it against the SCA reference system on 15 samples from 5 patients at 3 motility levels, with results close to the reference.</li>
-      </ul>
+      <p class="when">Sept. 2025 – Mar. 2026<span>7 months</span></p>
+      <div>
+        <h3>Research intern, computer vision for medical imaging</h3>
+        <p class="org">CERIST, Data Science Unit, Algeria</p>
+        <ul>
+          <li>Built an automated sperm motility analysis system, from curated dark-field video to motility grades inspired by the WHO manual (<a href="#spermnet">1.1</a>).</li>
+          <li>Replaced a YOLO11m and DeepSORT baseline with SpermNet, a 0.38 M-parameter detector, and a motion-only tracker: CPU time per clip from 195 s to 10.4 s.</li>
+          <li>Shipped the engine in an offline Electron desktop application; compared its results with the SCA reference system on 15 samples from 5 patients at 3 motility levels.</li>
+        </ul>
+      </div>
     </li>
     <li>
-      <p class="date">Sept. to Oct. 2025</p>
-      <h3>Intern, networks and infrastructure</h3>
-      <p class="org">Algérie Télécom, Batna</p>
-      <ul>
-        <li>Studied the system that tracks maintenance and internet access for residential subscribers.</li>
-        <li>Took part in fiber-optic operation and maintenance; delivered an internship report.</li>
-      </ul>
+      <p class="when">Sept. – Oct. 2025</p>
+      <div>
+        <h3>Intern, networks and infrastructure</h3>
+        <p class="org">Algérie Télécom, Batna</p>
+        <ul>
+          <li>Studied the system that tracks maintenance and internet access for residential subscribers.</li>
+          <li>Took part in fiber-optic operation and maintenance; delivered an internship report.</li>
+        </ul>
+      </div>
     </li>
     <li>
-      <p class="date">June 2025</p>
-      <h3>Intern, data and supervision</h3>
-      <p class="org">Sonelgaz, Batna</p>
-      <ul>
-        <li>Studied large-scale data management and the remote supervision and maintenance systems of the grid; wrote a report on them.</li>
-      </ul>
+      <p class="when">June 2025</p>
+      <div>
+        <h3>Intern, data and supervision</h3>
+        <p class="org">Sonelgaz, Batna</p>
+        <ul>
+          <li>Studied large-scale data management and the remote supervision and maintenance systems of the grid; wrote a report on them.</li>
+        </ul>
+      </div>
     </li>
   </ol>
 </section>
 
-<section class="education" id="education" aria-labelledby="edu-title">
-  <h2 id="edu-title">Education</h2>
-  <div class="edu">
-    <div>
-      <p class="date">2026 to 2027</p>
-      <h3>Master 2, Data, Knowledge and Hybrid AI (DKAI)</h3>
-      <p class="org">Université Paris-Saclay</p>
-      <p>Includes evaluating and preparing data for AI, and data warehouses and big data. Ends with the 6-month internship from February 2027.</p>
-    </div>
-    <div>
-      <p class="date">2022 to 2026</p>
-      <h3>State engineering degree in computer science, AI and data science double track</h3>
-      <p class="org">ESTIN, Béjaïa</p>
-      <p>Ranked 6th of the class.</p>
-    </div>
+<section class="ledger-section wrap" id="education" aria-labelledby="edu-title">
+  <div class="section-head">
+    <p class="label">03</p>
+    <h2 id="edu-title">Education</h2>
   </div>
+  <ol class="ledger">
+    <li>
+      <p class="when">2026 – 2027</p>
+      <div>
+        <h3>Master 2, Data, Knowledge and Hybrid AI (DKAI)</h3>
+        <p class="org">Université Paris-Saclay</p>
+        <p>Includes evaluating and preparing data for AI, and data warehouses and big data. Ends with the 6-month internship from February 2027.</p>
+      </div>
+    </li>
+    <li>
+      <p class="when">2022 – 2026</p>
+      <div>
+        <h3>State engineering degree in computer science, AI and data science double track</h3>
+        <p class="org">ESTIN, Béjaïa</p>
+        <p>Ranked 6th of the class.</p>
+      </div>
+    </li>
+  </ol>
 </section>
 
-<section class="skills" id="skills" aria-labelledby="skills-title">
-  <h2 id="skills-title">Skills</h2>
-  <div class="skill-grid">
-    <div><h3>Machine learning and vision</h3><p>PyTorch, Hugging Face, TensorFlow, scikit-learn, OpenCV, YOLO, DeepSORT, Vision Transformers and CNNs, LoRA, knowledge distillation, ONNX</p></div>
-    <div><h3>LLM systems</h3><p>llama.cpp, vLLM, LangGraph, Model Context Protocol, hybrid retrieval (BM25 and dense), knowledge graphs, GPU capacity planning</p></div>
-    <div><h3>Data</h3><p>SQL, pandas, NumPy, ETL with Talend, data warehousing and OLAP, statistical testing (bootstrap intervals, McNemar), Matplotlib, Plotly</p></div>
-    <div><h3>Engineering</h3><p>Python, Java, JavaScript, Dart; Django REST, FastAPI, Docker, GitHub Actions, MySQL, PostgreSQL, Flutter, Electron.js</p></div>
+<section class="ledger-section wrap" id="skills" aria-labelledby="skills-title">
+  <div class="section-head">
+    <p class="label">04</p>
+    <h2 id="skills-title">Skills and more</h2>
   </div>
-</section>
-
-<section class="involvement" aria-labelledby="inv-title">
-  <h2 id="inv-title">Leadership and distinctions</h2>
-  <ul class="plain">
-    <li><b>Head of the technical department, School of AI club, Béjaïa</b>, since Sept. 2024: machine learning and deep learning workshops, the DataLand datathon platform, coaching teams for the TrainNet hackathon.</li>
-    <li><b>Exhibition of Innovative Projects certificate</b>, Global Entrepreneurship Week at ESTIN, for Commercia.</li>
-    <li><b>Machine Learning Specialization</b>, Coursera.</li>
-  </ul>
+  <dl class="skills">
+    <dt>Machine learning and vision</dt><dd>PyTorch, Hugging Face, TensorFlow, scikit-learn, OpenCV, YOLO, DeepSORT, CenterNet-style detectors, Vision Transformers and CNNs, LoRA, knowledge distillation, ONNX Runtime</dd>
+    <dt>LLM systems</dt><dd>llama.cpp, vLLM, LangGraph, Model Context Protocol, hybrid retrieval (BM25 and dense), knowledge graphs, GPU capacity planning</dd>
+    <dt>Data and evaluation</dt><dd>SQL, pandas, NumPy, ETL with Talend, data warehousing and OLAP, cross-validation grouped by source, bootstrap intervals, McNemar and Friedman tests, MOTA, IDF1, HOTA</dd>
+    <dt>Engineering</dt><dd>Python, TypeScript, Java, Dart; FastAPI, Django REST, React, Electron, Flutter, Docker, GitHub Actions, MySQL, PostgreSQL</dd>
+    <dt>Languages</dt><dd>Arabic (native), French (C1), English (fluent)</dd>
+    <dt>Leadership</dt><dd>Head of the technical department, School of AI club, Béjaïa, since Sept. 2024: machine learning workshops, the DataLand datathon platform, coaching teams for the TrainNet hackathon</dd>
+    <dt>Distinctions</dt><dd>Exhibition of Innovative Projects certificate, Global Entrepreneurship Week at ESTIN, for Commercia; Machine Learning Specialization, Coursera</dd>
+  </dl>
 </section>
 
 </main>
 
 <footer class="contact" id="contact">
-  <h2>Contact</h2>
-  <p>The quickest way to reach me is email. I answer in French or English.</p>
-  <ul class="links">
-    <li><a class="button" href="mailto:djoudelhak@gmail.com">djoudelhak@gmail.com</a></li>
-    <li><a href="https://www.linkedin.com/in/djoud-el-hak-belkhir-055977223/" rel="noopener">LinkedIn</a></li>
-    <li><a href="https://github.com/djihad-elhak" rel="noopener">GitHub</a></li>
-    <li><a href="https://www.kaggle.com/djihadelhakbelkhir" rel="noopener">Kaggle</a></li>
-  </ul>
+  <div class="wrap">
+    <p class="label">05 · Contact</p>
+    <p class="contact-line">For an internship from February 2027, write to <a href="mailto:djoudelhak@gmail.com">djoudelhak@gmail.com</a>. I answer in French or English.</p>
+    <ul class="contact-links">
+      <li><a href="https://www.linkedin.com/in/djoud-el-hak-belkhir-055977223/" rel="noopener">LinkedIn</a></li>
+      <li><a href="https://github.com/djihad-elhak" rel="noopener">GitHub</a></li>
+      <li><a href="https://www.kaggle.com/djihadelhakbelkhir" rel="noopener">Kaggle</a></li>
+    </ul>
+    <p class="colophon">Set in Newsreader and IBM Plex. No cookies, no tracking.</p>
+  </div>
 </footer>
 
 </body>
