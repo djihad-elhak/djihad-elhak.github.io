@@ -31,13 +31,13 @@
         <li><a href="../#contact">Contact</a></li>
       </ul>
     </nav>
-    <p class="masthead-meta">Case study 2.4</p>
+    <p class="masthead-meta">Case study 2.3</p>
   </div>
 </header>
 
 <main id="main">
 <header class="page-head wrap">
-  <p class="crumbs"><a href="../#work">Selected work</a><span aria-hidden="true">/</span><span>2.4</span></p>
+  <p class="crumbs"><a href="../#work">Selected work</a><span aria-hidden="true">/</span><span>2.3</span></p>
   <div class="title-row"><h1>Feature distillation of a mobile vision-language model</h1></div>
   <p class="standfirst">Distilling MobileVLM V2 7B into its 3B sibling: the student keeps 96.8% of the teacher's accuracy with 2.3 times fewer parameters, and its visual representations move from 0.48 to 0.92 CKA with the teacher.</p>
   <dl class="factsheet">
@@ -61,10 +61,10 @@
 
 <p>In a team project on knowledge distillation for mobile vision-language models, we compressed MobileVLM V2 7B into its 3B sibling. My part was <b>feature distillation</b>: the student learns to answer GQA questions and to reproduce the teacher's hidden states, both at the answer position and on the visual tokens.</p>
 <figure class="diagram">
-  <div class="scroll">
-    <svg viewBox="0 0 1140 318" role="img" aria-labelledby="dg9-t">
-      <title id="dg9-t">Feature distillation set-up: frozen teacher, LoRA student, adapter and losses</title>
-      <defs><marker id="dg9-a" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="dg-arrow" d="M0,0 L8,4 L0,8 z"/></marker><marker id="dg9-am" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="dg-arrow mark" d="M0,0 L8,4 L0,8 z"/></marker></defs>
+  <div class="scroll" tabindex="0" role="region" aria-label="Feature distillation set-up: frozen teacher, LoRA student, adapter and losses, scrolls sideways on small screens">
+    <svg viewBox="0 0 1140 318" role="img" aria-labelledby="dg7-t">
+      <title id="dg7-t">Feature distillation set-up: frozen teacher, LoRA student, adapter and losses</title>
+      <defs><marker id="dg7-a" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="dg-arrow" d="M0,0 L8,4 L0,8 z"/></marker><marker id="dg7-am" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="dg-arrow mark" d="M0,0 L8,4 L0,8 z"/></marker></defs>
       <rect class="dg-box" x="10" y="120" width="150" height="80" rx="2"/>
 <text class="dg-t" x="20" y="140">GQA image</text>
 <text class="dg-s" x="20" y="157">+ question</text>
@@ -97,16 +97,16 @@
 <text class="dg-t on-dark" x="1020" y="180">Loss</text>
 <text class="dg-s on-dark-s" x="1020" y="197">CE + feature</text>
 <text class="dg-s on-dark-s" x="1020" y="211">MSE</text>
-<polyline class="dg-e" points="161,150 190,150 190,76 214,76" marker-end="url(#dg9-a)"/>
-<polyline class="dg-e" points="161,170 190,170 190,246 214,246" marker-end="url(#dg9-a)"/>
-<polyline class="dg-e" points="476,76 524,76" marker-end="url(#dg9-a)"/>
-<polyline class="dg-e" points="476,246 524,246" marker-end="url(#dg9-a)"/>
-<polyline class="dg-e" points="786,76 812,76 812,140 839,140" marker-end="url(#dg9-a)"/>
-<polyline class="dg-e" points="786,246 812,246 812,165 839,165" marker-end="url(#dg9-a)"/>
-<polyline class="dg-e" points="345,293 345,308 900,308 900,293" marker-end="url(#dg9-a)"/>
+<polyline class="dg-e" points="161,150 190,150 190,76 214,76" marker-end="url(#dg7-a)"/>
+<polyline class="dg-e" points="161,170 190,170 190,246 214,246" marker-end="url(#dg7-a)"/>
+<polyline class="dg-e" points="476,76 524,76" marker-end="url(#dg7-a)"/>
+<polyline class="dg-e" points="476,246 524,246" marker-end="url(#dg7-a)"/>
+<polyline class="dg-e" points="786,76 812,76 812,140 839,140" marker-end="url(#dg7-a)"/>
+<polyline class="dg-e" points="786,246 812,246 812,165 839,165" marker-end="url(#dg7-a)"/>
+<polyline class="dg-e" points="345,293 345,308 900,308 900,293" marker-end="url(#dg7-a)"/>
 <text class="dg-l" x="620" y="302" text-anchor="middle">student answer</text>
-<polyline class="dg-e" points="961,151 985,151 985,185 1009,185" marker-end="url(#dg9-a)"/>
-<polyline class="dg-e" points="961,262 985,262 985,215 1009,215" marker-end="url(#dg9-a)"/>
+<polyline class="dg-e" points="961,151 985,151 985,185 1009,185" marker-end="url(#dg7-a)"/>
+<polyline class="dg-e" points="961,262 985,262 985,215 1009,215" marker-end="url(#dg7-a)"/>
     </svg>
   </div>
   <figcaption><span class="fig">Fig. 1</span> Run D_qv: both signals, one epoch, 90,561 questions, 5,661 steps on Kaggle's 2× T4. The adapter is dropped after training; the result is a standalone fp16 model.</figcaption>
@@ -126,7 +126,7 @@
   </div>
   <div class="chapter-body">
 
-<div class="table-scroll"><table class="results wide">
+<div class="table-scroll" tabindex="0"><table class="results wide">
 <caption>GQA dev, 13,174 questions</caption>
 <thead><tr><th scope="col">Model</th><th scope="col">Accuracy</th></tr></thead>
 <tbody>
@@ -154,7 +154,7 @@
   </div>
 </section>
 
-<nav class="pager wrap" aria-label="Other projects"><a class="prev" href="trashgo.html"><span>← Previous</span><b>ViT-RealWaste and TrashGo</b></a><a class="next" href="dz-tabib.html"><span>Next →</span><b>DZ-Tabib</b></a></nav>
+<nav class="pager wrap" aria-label="Other projects"><a class="prev" href="oge.html"><span>← Previous</span><b>On-premise GenAI platform</b></a><a class="next" href="trashgo.html"><span>Next →</span><b>ViT-RealWaste and TrashGo</b></a></nav>
 </main>
 
 <footer class="contact" id="contact">

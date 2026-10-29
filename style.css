@@ -351,3 +351,31 @@ video { display: block; width: 100%; height: auto; background: var(--ink); }
   .caps > div + div { padding-left: 0; border-left: 0; border-top: 1px solid var(--rule); }
   .masthead nav { display: none; }
 }
+
+/* intro v3: name beside the portrait, availability as a strip */
+.intro { grid-template-columns: minmax(0, 1fr) minmax(13rem, 17rem); align-items: start; padding-bottom: clamp(2rem, 4vw, 3rem); }
+.intro-text { gap: 1.1rem; }
+.intro .portrait img { max-width: none; }
+.intro .spec-links { border-top: 0; padding-top: 0.25rem; }
+.lookfor { margin-bottom: clamp(3rem, 6vw, 4.5rem); display: grid; gap: 0.6rem; }
+.lookfor dl { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin: 0; border-top: 1px solid var(--rule-strong); border-bottom: 1px solid var(--rule); }
+.lookfor dl > div { padding: 0.8rem 1.25rem 0.9rem 0; display: grid; gap: 0.25rem; align-content: start; border-bottom: 1px solid var(--rule); }
+.lookfor dl > div:nth-child(n+4) { border-bottom: 0; }
+.lookfor dl > div:not(:nth-child(3n+1)) { padding-left: 1.25rem; border-left: 1px solid var(--rule); }
+.lookfor dt { font-family: var(--mono); font-size: 0.6875rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--ink-2); }
+.lookfor dd { margin: 0; font-size: 0.9375rem; }
+@media (max-width: 60rem) {
+  .lookfor dl { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .lookfor dl > div { border-bottom: 1px solid var(--rule) !important; border-left: 0 !important; padding-left: 0 !important; }
+  .lookfor dl > div:nth-child(2n) { padding-left: 1.25rem !important; border-left: 1px solid var(--rule) !important; }
+}
+@media (max-width: 44rem) {
+  .intro { grid-template-columns: minmax(0, 1fr) 6.5rem; gap: 1rem; align-items: center; }
+  .intro-text { display: contents; }
+  .intro .kicker { order: 0; grid-column: 1 / -1; }
+  .intro h1 { order: 1; grid-column: 1; }
+  .intro .portrait { order: 2; grid-column: 2; }
+  .intro .standfirst, .intro .intro-more, .intro .spec-links { order: 3; grid-column: 1 / -1; }
+  .lookfor dl { grid-template-columns: minmax(0, 1fr); }
+  .lookfor dl > div:nth-child(2n) { padding-left: 0 !important; border-left: 0 !important; }
+}

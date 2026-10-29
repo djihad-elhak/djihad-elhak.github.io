@@ -103,7 +103,7 @@
 
 <p>I started from a conventional pipeline, YOLO11m with DeepSORT on colour-inverted frames, and audited it against annotation and measurement instead of tuning it. Each later version replaced one assumption of the previous one with something measured.</p>
 <figure class="diagram">
-  <div class="scroll">
+  <div class="scroll" tabindex="0" role="region" aria-label="Pipeline from microscope to report, in seven stages, scrolls sideways on small screens">
     <svg viewBox="0 0 1140 232" role="img" aria-labelledby="dg1-t">
       <title id="dg1-t">Pipeline from microscope to report, in seven stages</title>
       <defs><marker id="dg1-a" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="dg-arrow" d="M0,0 L8,4 L0,8 z"/></marker><marker id="dg1-am" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="dg-arrow mark" d="M0,0 L8,4 L0,8 z"/></marker></defs>
@@ -169,7 +169,7 @@
   </div>
   <figcaption><span class="fig">Fig. 2</span> The system. Clips are curated with OpenCV, detected by SpermNet, linked by a motion-gated tracker, turned into kinematics and a grade, and reviewed in the console. The velocity scale comes from the optics, or cancels out (section 05).</figcaption>
 </figure>
-<div class="table-scroll"><table class="versions">
+<div class="table-scroll" tabindex="0"><table class="versions">
 <caption class="bars-title" style="text-align:left;padding-bottom:0.5rem">Three versions over seven months</caption>
 <thead><tr><td></td><th scope="col">Version 1, baseline</th><th scope="col">Version 2, redesign</th><th scope="col">Version 3, measured and deployed</th></tr></thead>
 <tbody>
@@ -198,7 +198,7 @@
   <div class="chapter-body">
 
 <p>Raw dark-field acquisitions were reviewed frame by frame with OpenCV. One-second excerpts with a stable field (no refocus, no stage drift) were kept and re-encoded as uncompressed 8-bit AVI, so no codec artefact enters the measurements.</p>
-<div class="table-scroll"><table class="results wide">
+<div class="table-scroll" tabindex="0"><table class="results wide">
 <caption>Corpus and annotation</caption>
 <thead><tr><th scope="col">Item</th><th scope="col">Value</th></tr></thead>
 <tbody>
@@ -231,7 +231,7 @@
 <p class="note">A detector can only localise a target that spans about one feature cell. Only the finest level of a standard pyramid carries signal for 10 px heads.</p>
 </div>
 <figure class="diagram">
-  <div class="scroll">
+  <div class="scroll" tabindex="0" role="region" aria-label="SpermNet architecture: three-channel input, U-shaped encoder and decoder, three heads at stride 2, scrolls sideways on small screens">
     <svg viewBox="0 0 1140 300" role="img" aria-labelledby="dg2-t">
       <title id="dg2-t">SpermNet architecture: three-channel input, U-shaped encoder and decoder, three heads at stride 2</title>
       <defs><marker id="dg2-a" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="dg-arrow" d="M0,0 L8,4 L0,8 z"/></marker><marker id="dg2-am" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="dg-arrow mark" d="M0,0 L8,4 L0,8 z"/></marker></defs>
@@ -312,7 +312,7 @@
   <div class="chapter-body">
 
 <p>Velocities in µm/s depend on the scale in micrometres per pixel. Version 1 estimated it from the specimen: an assumed head length of 4.7 µm divided by the median head length in pixels. A stage micrometer showed that this fails structurally.</p>
-<div class="table-scroll"><table class="results wide">
+<div class="table-scroll" tabindex="0"><table class="results wide">
 <caption>Scale estimates on 15 recordings from one microscope</caption>
 <thead><tr><th scope="col">Source</th><th scope="col">Scale</th><th scope="col">Effect</th></tr></thead>
 <tbody>
@@ -325,7 +325,7 @@
 <h3>Grading without any scale</h3>
 <p>When no calibration is available, the engine grades scale-free: a cell is motile when its velocity in pixels divided by its own head length in pixels is at least κ = 1.47 head lengths per second. Both sides are in pixels, so the unknown scale cancels. On the 15 recordings this reproduces the calibrated immotile fraction within 0.03 points on average, 1.52 at worst; PR and NP agree within 0.92 and 1.24 points. In leave-one-recording-out validation the same κ was selected in all 15 folds.</p>
 <figure class="diagram">
-  <div class="scroll">
+  <div class="scroll" tabindex="0" role="region" aria-label="Track-level motility grading rule, scrolls sideways on small screens">
     <svg viewBox="0 0 1000 262" role="img" aria-labelledby="dg3-t">
       <title id="dg3-t">Track-level motility grading rule</title>
       <defs><marker id="dg3-a" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="dg-arrow" d="M0,0 L8,4 L0,8 z"/></marker><marker id="dg3-am" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="dg-arrow mark" d="M0,0 L8,4 L0,8 z"/></marker></defs>
@@ -385,7 +385,7 @@
 <div class="row"><span>Classical (Otsu + linking)</span><span class="track" aria-hidden="true"><span class="fill" style="width:62.8%"></span></span><span class="val">0.628</span></div>
 <p class="note">Whisker: 95% CI for SpermNet (0.684 to 0.824). The YOLO11m weights come from version 1 and were not retrained per fold, so the comparison is indicative, not controlled.</p>
 </div>
-<div class="table-scroll"><table class="results wide">
+<div class="table-scroll" tabindex="0"><table class="results wide">
 <caption>Detection, five-fold cross-validation grouped by video</caption>
 <thead><tr><th scope="col">Detector</th><th scope="col">Params</th><th scope="col">AP</th><th scope="col">Precision</th><th scope="col">Recall</th><th scope="col">F1</th></tr></thead>
 <tbody>
@@ -403,7 +403,7 @@
 <p class="note">Both detectors miss almost the same number of cells (268 and 266). The difference is the false positives that do not move, each counted as an immotile cell.</p>
 </div>
 <h3>Tracking</h3>
-<div class="table-scroll"><table class="results wide">
+<div class="table-scroll" tabindex="0"><table class="results wide">
 <caption>Tracking against 46 manual identities, 8 px tolerance, same tracker</caption>
 <thead><tr><th scope="col">System</th><th scope="col">MOTA</th><th scope="col">IDF1</th><th scope="col">HOTA</th><th scope="col">Mean track length</th></tr></thead>
 <tbody>
@@ -420,7 +420,7 @@
 <p class="note">SpermNet: 8.9 s detection + 1.5 s tracking. The classical baseline is fast but over-fragments: 846 tracks per clip against 321.</p>
 </div>
 <h3>What did not help</h3>
-<div class="table-scroll"><table class="results wide">
+<div class="table-scroll" tabindex="0"><table class="results wide">
 <caption>Component analysis, including what I removed</caption>
 <thead><tr><th scope="col">Component</th><th scope="col">Observation</th></tr></thead>
 <tbody>
@@ -442,7 +442,7 @@
 
 <p>The engine ships inside a desktop application so a laboratory can use it on its own PC, with records kept on that workstation.</p>
 <figure class="diagram">
-  <div class="scroll">
+  <div class="scroll" tabindex="0" role="region" aria-label="Architecture of the Andrology Console desktop application, scrolls sideways on small screens">
     <svg viewBox="0 0 1140 300" role="img" aria-labelledby="dg4-t">
       <title id="dg4-t">Architecture of the Andrology Console desktop application</title>
       <defs><marker id="dg4-a" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="dg-arrow" d="M0,0 L8,4 L0,8 z"/></marker><marker id="dg4-am" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="dg-arrow mark" d="M0,0 L8,4 L0,8 z"/></marker></defs>
