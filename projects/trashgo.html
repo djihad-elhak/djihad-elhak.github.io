@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ViT-RealWaste and TrashGo, Djoud El Hak Belkhir</title>
+<meta name="description" content="A leakage-aware ViT vs CNN benchmark on RealWaste, and TrashGo, a Flutter app that classifies waste on the phone.">
+<meta property="og:title" content="ViT-RealWaste and TrashGo, Djoud El Hak Belkhir">
+<meta property="og:description" content="A leakage-aware ViT vs CNN benchmark on RealWaste, and TrashGo, a Flutter app that classifies waste on the phone.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://djihad-elhak.github.io/projects/trashgo.html">
+<meta property="og:image" content="https://djihad-elhak.github.io/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="preload" href="../fonts/newsreader-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../fonts/ibm-plex-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="masthead">
+  <div class="wrap masthead-row">
+    <a class="masthead-name" href="../#top">Djoud El Hak Belkhir</a>
+    <nav aria-label="Sections">
+      <ul>
+        <li><a href="../#work">Work</a></li>
+        <li><a href="../#experience">Experience</a></li>
+        <li><a href="../#education">Education</a></li>
+        <li><a href="../#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <p class="masthead-meta">Case study 1.3</p>
+  </div>
+</header>
+
+<main id="main">
+<header class="page-head wrap">
+  <p class="crumbs"><a href="../#work">Selected work</a><span aria-hidden="true">/</span><span>1.3</span></p>
+  <div class="title-row"><h1>ViT-RealWaste and TrashGo</h1></div>
+  <p class="standfirst">A leakage-aware benchmark of a Vision Transformer against three CNNs for landfill waste classification, and the Flutter app that runs the classifier on the phone and turns a correct photo into a reward.</p>
+  <dl class="factsheet">
+  <div><dt>Context</dt><dd>Personal project</dd></div>
+  <div><dt>Period</dt><dd>2026</dd></div>
+  <div><dt>Role</dt><dd>Benchmark, export and app</dd></div>
+  <div><dt>Stack</dt><dd>PyTorch, torchvision, ONNX Runtime, Flutter, Riverpod, Firebase</dd></div>
+</dl>
+</header>
+
+<div class="wrap">
+<figure class="phones">
+  <ul>
+    <li><a href="../img/trashgo-signin.webp"><img src="../img/trashgo-signin.webp" width="173" height="376" loading="lazy" alt="Sign-in screen with Google and email options."></a></li>
+    <li><a href="../img/trashgo-home.webp"><img src="../img/trashgo-home.webp" width="209" height="454" loading="lazy" alt="Home screen with a start claiming button, claims, streak and rank."></a></li>
+    <li><a href="../img/trashgo-scan.webp"><img src="../img/trashgo-scan.webp" width="199" height="433" loading="lazy" alt="Camera screen: a plastic bottle labelled Plastic bottle, 92%."></a></li>
+    <li><a href="../img/trashgo-map.webp"><img src="../img/trashgo-map.webp" width="204" height="443" loading="lazy" alt="Map of nearby claims."></a></li>
+  </ul>
+  <figcaption><span class="fig">Fig. 1</span> TrashGo: sign in, home, the scanning screen that runs the classifier on the phone, and the claim map.</figcaption>
+</figure>
+</div>
+
+<section class="chapter wrap" aria-labelledby="c01">
+  <div class="section-head">
+    <p class="label">01</p>
+    <h2 id="c01">The question and the product</h2>
+  </div>
+  <div class="chapter-body">
+
+<p>One project in two parts. <b>ViT-RealWaste</b> is the research question: under one identical, leakage-aware protocol, does a Vision Transformer beat representative CNNs on real landfill waste photos, and by how much compared with sampling noise? <b>TrashGo</b> is the product: a Flutter app that runs an ONNX export of the pipeline entirely on the phone and turns a correct classification into a claim, coins and missions.</p>
+<p>The data is RealWaste (Single, Iranmanesh and Raad, University of Wollongong, 2023): 4,752 photos from a residential waste audit, in nine classes from cardboard to vegetation.</p>
+
+  </div>
+</section>
+<section class="chapter wrap" aria-labelledby="c02">
+  <div class="section-head">
+    <p class="label">02</p>
+    <h2 id="c02">ViT-RealWaste, the benchmark</h2>
+  </div>
+  <div class="chapter-body">
+
+<figure class="diagram">
+  <div class="scroll">
+    <svg viewBox="0 0 1140 236" role="img" aria-labelledby="dg7-t">
+      <title id="dg7-t">From dataset to phone</title>
+      <defs><marker id="dg7-a" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="dg-arrow" d="M0,0 L8,4 L0,8 z"/></marker><marker id="dg7-am" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="dg-arrow mark" d="M0,0 L8,4 L0,8 z"/></marker></defs>
+      <rect class="dg-group" x="4" y="28" width="960" height="156" rx="3"/><text class="dg-g" x="12" y="22">research, Kaggle GPU</text>
+<rect class="dg-group" x="976" y="28" width="160" height="156" rx="3"/><text class="dg-g" x="984" y="22">product</text>
+<rect class="dg-box" x="12" y="52" width="122" height="112" rx="2"/>
+<text class="dg-k" x="22" y="68">1</text>
+<text class="dg-t" x="22" y="86">RealWaste</text>
+<text class="dg-s" x="22" y="103">4,752 images</text>
+<text class="dg-s" x="22" y="117">9 classes</text>
+<rect class="dg-box mark" x="148" y="52" width="122" height="112" rx="2"/>
+<text class="dg-k" x="158" y="68">2</text>
+<text class="dg-t" x="158" y="86">Split first</text>
+<text class="dg-s" x="158" y="103">stratified 80/10/10</text>
+<text class="dg-s" x="158" y="117">3,798 / 473 / 481</text>
+<polyline class="dg-e" points="135,108.0 147,108.0" marker-end="url(#dg7-a)"/>
+<rect class="dg-box" x="284" y="52" width="122" height="112" rx="2"/>
+<text class="dg-k" x="294" y="68">3</text>
+<text class="dg-t" x="294" y="86">Augment</text>
+<text class="dg-s" x="294" y="103">train ×3, val ×2</text>
+<text class="dg-s" x="294" y="117">test untouched</text>
+<polyline class="dg-e" points="271,108.0 283,108.0" marker-end="url(#dg7-a)"/>
+<rect class="dg-box" x="420" y="52" width="122" height="112" rx="2"/>
+<text class="dg-k" x="430" y="68">4</text>
+<text class="dg-t" x="430" y="86">Fine-tune</text>
+<text class="dg-s" x="430" y="103">ImageNet init</text>
+<text class="dg-s" x="430" y="117">3 stages × 5 epochs</text>
+<polyline class="dg-e" points="407,108.0 419,108.0" marker-end="url(#dg7-a)"/>
+<rect class="dg-box" x="556" y="52" width="122" height="112" rx="2"/>
+<text class="dg-k" x="566" y="68">5</text>
+<text class="dg-t" x="566" y="86">Select</text>
+<text class="dg-s" x="566" y="103">best epoch on</text>
+<text class="dg-s" x="566" y="117">validation F1</text>
+<polyline class="dg-e" points="543,108.0 555,108.0" marker-end="url(#dg7-a)"/>
+<rect class="dg-box" x="692" y="52" width="122" height="112" rx="2"/>
+<text class="dg-k" x="702" y="68">6</text>
+<text class="dg-t" x="702" y="86">Test</text>
+<text class="dg-s" x="702" y="103">481 held-out</text>
+<text class="dg-s" x="702" y="117">bootstrap CIs</text>
+<polyline class="dg-e" points="679,108.0 691,108.0" marker-end="url(#dg7-a)"/>
+<rect class="dg-box" x="828" y="52" width="122" height="112" rx="2"/>
+<text class="dg-k" x="838" y="68">7</text>
+<text class="dg-t" x="838" y="86">ONNX export</text>
+<text class="dg-s" x="838" y="103">opset 18</text>
+<text class="dg-s" x="838" y="117">checked in ORT</text>
+<polyline class="dg-e" points="815,108.0 827,108.0" marker-end="url(#dg7-a)"/>
+<rect class="dg-box dark" x="988" y="52" width="136" height="112" rx="2"/>
+<text class="dg-k" x="998" y="68">8</text>
+<text class="dg-t on-dark" x="998" y="86">TrashGo</text>
+<text class="dg-s on-dark-s" x="998" y="103">on-device</text>
+<text class="dg-s on-dark-s" x="998" y="117">inference, CPU</text>
+<text class="dg-s on-dark-s" x="998" y="131">no network</text>
+<polyline class="dg-e" points="951,108 987,108" marker-end="url(#dg7-a)"/>
+<text class="dg-s" x="12" y="214" text-anchor="start">Split before augmentation, so no augmented copy of an image crosses the train / validation / test boundary.</text>
+    </svg>
+  </div>
+  <figcaption><span class="fig">Fig. 2</span> The pipeline. Seeds fixed to 42 for Python, NumPy, PyTorch and CUDA, deterministic cuDNN, class-weighted cross-entropy, AdamW, mixed precision.</figcaption>
+</figure>
+<div class="bars" role="group" aria-label="Macro-F1 on 481 held-out images, 95% bootstrap CI (axis from 80%)">
+<p class="bars-title">Macro-F1 on 481 held-out images, 95% bootstrap CI (axis from 80%)</p>
+<div class="row"><span>MobileNetV2 · 2.2 M</span><span class="track" aria-hidden="true"><span class="fill" style="width:44.0%"></span><span class="ci" style="left:29.0%;width:28.5%"></span></span><span class="val">88.80%</span></div>
+<div class="row"><span>VGG-16 · 134.3 M</span><span class="track" aria-hidden="true"><span class="fill" style="width:57.3%"></span><span class="ci" style="left:44.0%;width:25.0%"></span></span><span class="val">91.47%</span></div>
+<div class="row"><span>Inception V3 · 21.8 M</span><span class="track" aria-hidden="true"><span class="fill" style="width:68.0%"></span><span class="ci" style="left:56.0%;width:22.5%"></span></span><span class="val">93.59%</span></div>
+<div class="row hl"><span>ViT-B/16 · 85.8 M</span><span class="track" aria-hidden="true"><span class="fill" style="width:69.3%"></span><span class="ci" style="left:57.5%;width:22.0%"></span></span><span class="val">93.86%</span></div>
+</div>
+<div class="table-scroll"><table class="results wide">
+<caption>Held-out test set, one run per model</caption>
+<thead><tr><th scope="col">Model</th><th scope="col">Accuracy</th><th scope="col">Macro-F1</th><th scope="col">Params</th><th scope="col">Train time</th></tr></thead>
+<tbody>
+<tr><th scope="row">MobileNetV2</th><td>88.57%</td><td>88.80%</td><td>2.2 M</td><td>17.3 min</td></tr>
+<tr><th scope="row">VGG-16</th><td>90.85%</td><td>91.47%</td><td>134.3 M</td><td>25.4 min</td></tr>
+<tr><th scope="row">Inception V3</th><td>93.35%</td><td>93.59%</td><td>21.8 M</td><td>31.7 min</td></tr>
+<tr class="hl"><th scope="row">ViT-B/16</th><td>93.35%</td><td>93.86%</td><td>85.8 M</td><td>69.5 min</td></tr>
+</tbody></table></div>
+<p class="pull">ViT-B/16 has the best macro-F1 and ties Inception V3 on accuracy, but their intervals overlap almost completely: 481 images cannot rank them.</p>
+<p>The same errors (miscellaneous trash, metal and plastic) recur in every model, which points to label ambiguity rather than architecture as the main limit. The write-up is a manuscript, <em>ViT-RealWaste: A Leakage-Aware Benchmark of a Vision Transformer against CNNs for Landfill Waste Classification</em>.</p>
+<h3>Limits</h3>
+<ul class="ticks">
+  <li>One random split and one seed per model; the intervals ignore training variance.</li>
+  <li>No group-aware split, so photos of the same item can land in different partitions.</li>
+  <li>The validation set contains offline-augmented copies.</li>
+</ul>
+
+  </div>
+</section>
+<section class="chapter wrap" aria-labelledby="c03">
+  <div class="section-head">
+    <p class="label">03</p>
+    <h2 id="c03">TrashGo, the app</h2>
+  </div>
+  <div class="chapter-body">
+
+<figure class="diagram">
+  <div class="scroll">
+    <svg viewBox="0 0 1140 262" role="img" aria-labelledby="dg8-t">
+      <title id="dg8-t">Claiming flow in TrashGo</title>
+      <defs><marker id="dg8-a" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="dg-arrow" d="M0,0 L8,4 L0,8 z"/></marker><marker id="dg8-am" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="dg-arrow mark" d="M0,0 L8,4 L0,8 z"/></marker></defs>
+      <rect class="dg-box" x="10" y="70" width="130" height="90" rx="2"/>
+<text class="dg-t" x="20" y="90">Camera</text>
+<text class="dg-s" x="20" y="107">live preview</text>
+<text class="dg-s" x="20" y="121">SNAP</text>
+<rect class="dg-box" x="158" y="70" width="130" height="90" rx="2"/>
+<text class="dg-t" x="168" y="90">Preprocess</text>
+<text class="dg-s" x="168" y="107">resize 256</text>
+<text class="dg-s" x="168" y="121">centre crop 224</text>
+<text class="dg-s" x="168" y="135">ImageNet norm</text>
+<polyline class="dg-e" points="141,115.0 157,115.0" marker-end="url(#dg8-a)"/>
+<rect class="dg-box mark" x="306" y="70" width="130" height="90" rx="2"/>
+<text class="dg-t" x="316" y="90">ONNX Runtime</text>
+<text class="dg-s" x="316" y="107">on the phone</text>
+<text class="dg-s" x="316" y="121">[1, 3, 224, 224]</text>
+<polyline class="dg-e" points="289,115.0 305,115.0" marker-end="url(#dg8-a)"/>
+<rect class="dg-box" x="454" y="70" width="130" height="90" rx="2"/>
+<text class="dg-t" x="464" y="90">Softmax</text>
+<text class="dg-s" x="464" y="107">9 classes</text>
+<polyline class="dg-e" points="437,115.0 453,115.0" marker-end="url(#dg8-a)"/>
+<rect class="dg-box mark" x="602" y="80" width="160" height="70" rx="2"/>
+<text class="dg-t" x="612" y="100">confidence ≥ 0.65 ?</text>
+<polyline class="dg-e" points="585,115 601,115" marker-end="url(#dg8-a)"/>
+<rect class="dg-box" x="810" y="20" width="150" height="90" rx="2"/>
+<text class="dg-t" x="820" y="40">Anti-cheat</text>
+<text class="dg-s" x="820" y="57">SHA-256 duplicate</text>
+<text class="dg-s" x="820" y="71">≥ 50 m between</text>
+<text class="dg-s" x="820" y="85">claims</text>
+<rect class="dg-box dark" x="990" y="20" width="140" height="90" rx="2"/>
+<text class="dg-t on-dark" x="1000" y="40">Firestore batch</text>
+<text class="dg-s on-dark-s" x="1000" y="57">claim, coins,</text>
+<text class="dg-s on-dark-s" x="1000" y="71">missions, atomic</text>
+<rect class="dg-box soft" x="990" y="125" width="140" height="54" rx="2"/>
+<text class="dg-t" x="1000" y="145">Cloudinary</text>
+<text class="dg-s" x="1000" y="162">photo, background</text>
+<rect class="dg-box soft" x="810" y="200" width="320" height="50" rx="2"/>
+<text class="dg-t" x="820" y="220">Rejected: “That doesn&#x27;t look like trash”</text>
+<polyline class="dg-e" points="763,105 785,105 785,65 809,65" marker-end="url(#dg8-a)"/>
+<text class="dg-l" x="790" y="92" text-anchor="start">yes</text>
+<polyline class="dg-e" points="961,65 989,65" marker-end="url(#dg8-a)"/>
+<polyline class="dg-e" points="1060,111 1060,124" marker-end="url(#dg8-a)"/>
+<polyline class="dg-e" points="682,151 682,225 809,225" marker-end="url(#dg8-a)"/>
+<text class="dg-l" x="692" y="196" text-anchor="start">no</text>
+    </svg>
+  </div>
+  <figcaption><span class="fig">Fig. 3</span> A claim. Classification runs fully offline; the network is used for accounts, claims, photos and social features, never for the forward pass. The photo upload never blocks the reward.</figcaption>
+</figure>
+<ul class="ticks">
+  <li><b>Stack:</b> Flutter and Dart, Riverpod, GoRouter, Firebase Auth and Firestore, <code>onnxruntime_v2</code> on the CPU, flutter_map with OpenStreetMap, Cloudinary for photos.</li>
+  <li><b>One contract between notebook and app:</b> NCHW float32 input, resize 256 then centre crop 224, ImageNet mean and standard deviation, the training class order, softmax before any threshold. If one line changes, the others change with it.</li>
+  <li><b>Shipped model:</b> the app currently ships the DenseNet121 export, the checkpoint the notebook validated end to end in ONNX Runtime; it is not one of the four models in the comparison. Target: under 800 ms per inference on a mid-range Android phone.</li>
+  <li><b>Rewards:</b> base coins grow with how rare a category is in the audit mix, with bonuses for the first claim of the day and for 3- and 7-day streaks.</li>
+</ul>
+<figure class="phones">
+  <ul>
+    <li><a href="../img/trashgo-missions.webp"><img src="../img/trashgo-missions.webp" width="239" height="520" loading="lazy" alt="Missions: daily quests and special events."></a></li>
+    <li><a href="../img/trashgo-ranking.webp"><img src="../img/trashgo-ranking.webp" width="231" height="502" loading="lazy" alt="Leaderboard with a podium."></a></li>
+    <li><a href="../img/trashgo-rewards.webp"><img src="../img/trashgo-rewards.webp" width="217" height="472" loading="lazy" alt="Rewards shop."></a></li>
+    <li><a href="../img/trashgo-profile.webp"><img src="../img/trashgo-profile.webp" width="232" height="504" loading="lazy" alt="Profile with total claims, trash saved and rank."></a></li>
+  </ul>
+  <figcaption><span class="fig">Fig. 4</span> Missions, leaderboard, rewards shop and profile.</figcaption>
+</figure>
+<p class="links-row"><a href="https://github.com/djihad-elhak/waste-net">Code and README</a></p>
+
+  </div>
+</section>
+
+<nav class="pager wrap" aria-label="Other projects"><a class="prev" href="oge.html"><span>← Previous</span><b>On-premise GenAI platform</b></a><a class="next" href="kd-vlm.html"><span>Next →</span><b>Feature distillation of MobileVLM</b></a></nav>
+</main>
+
+<footer class="contact" id="contact">
+  <div class="wrap">
+    <p class="label">Contact</p>
+    <p class="contact-line">For an internship from February 2027, write to <a href="mailto:djoudelhak@gmail.com">djoudelhak@gmail.com</a>. I answer in French or English.</p>
+    <ul class="contact-links">
+      <li><a href="https://www.linkedin.com/in/djoud-el-hak-belkhir-055977223/" rel="noopener">LinkedIn</a></li>
+      <li><a href="https://github.com/djihad-elhak" rel="noopener">GitHub</a></li>
+      <li><a href="https://www.kaggle.com/djihadelhakbelkhir" rel="noopener">Kaggle</a></li>
+    </ul>
+    <p class="colophon">Set in Newsreader and IBM Plex. No cookies, no tracking.</p>
+  </div>
+</footer>
+
+</body>
+</html>

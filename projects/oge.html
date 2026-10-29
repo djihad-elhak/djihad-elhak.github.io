@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>On-premise GenAI platform, Djoud El Hak Belkhir</title>
+<meta name="description" content="An on-premise GenAI platform for embedded software teams, built and measured on NASA&#x27;s F´ flight framework.">
+<meta property="og:title" content="On-premise GenAI platform, Djoud El Hak Belkhir">
+<meta property="og:description" content="An on-premise GenAI platform for embedded software teams, built and measured on NASA&#x27;s F´ flight framework.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://djihad-elhak.github.io/projects/oge.html">
+<meta property="og:image" content="https://djihad-elhak.github.io/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="preload" href="../fonts/newsreader-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../fonts/ibm-plex-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="masthead">
+  <div class="wrap masthead-row">
+    <a class="masthead-name" href="../#top">Djoud El Hak Belkhir</a>
+    <nav aria-label="Sections">
+      <ul>
+        <li><a href="../#work">Work</a></li>
+        <li><a href="../#experience">Experience</a></li>
+        <li><a href="../#education">Education</a></li>
+        <li><a href="../#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <p class="masthead-meta">Case study 1.2</p>
+  </div>
+</header>
+
+<main id="main">
+<header class="page-head wrap">
+  <p class="crumbs"><a href="../#work">Selected work</a><span aria-hidden="true">/</span><span>1.2</span></p>
+  <div class="title-row"><h1>On-premise GenAI platform for flight software</h1></div>
+  <p class="standfirst">A platform an embedded software team can run on its own GPUs: a knowledge graph of the code and its requirements served over MCP, an agent that writes requirement-tagged unit tests and proves them, a GPU sizing model calibrated on measured runs, and a web console.</p>
+  <dl class="factsheet">
+  <div><dt>Context</dt><dd>Personal research project</dd></div>
+  <div><dt>Period</dt><dd>2026</dd></div>
+  <div><dt>Output</dt><dd>Code, <a href="https://djihad-elhak.github.io/onprem-genai-embedded/">live demo</a>, 6-page paper</dd></div>
+  <div><dt>Stack</dt><dd>Python, LangGraph, MCP, llama.cpp, vLLM, Neo4j, Docker, Jenkins, GitHub Actions</dd></div>
+</dl>
+</header>
+
+<div class="wrap">
+<figure class="plate">
+  <a href="../img/oge-overview.webp"><img src="../img/oge-overview.webp" width="1600" height="1000" alt="Console overview: counts of requirements cited by a test, generated, without evidence and verified otherwise, and a grid of requirements by component."></a>
+  <figcaption><span class="fig">Fig. 1</span> The engineering console, overview page. <a href="https://djihad-elhak.github.io/onprem-genai-embedded/">Open the live demo</a>.</figcaption>
+</figure>
+</div>
+
+<section class="chapter wrap" aria-labelledby="c01">
+  <div class="section-head">
+    <p class="label">01</p>
+    <h2 id="c01">The problem</h2>
+  </div>
+  <div class="chapter-body">
+
+<p>Embedded software teams working on sensitive code often cannot send it to a cloud model. They need assistants that run on their own GPUs, and they need to know three things before buying them: how many GPUs a team needs, whether the models are any good on embedded C, and whether an agent can do useful, checkable work on their code base.</p>
+<p>I built and measured such a platform on NASA's F<span class="fp">´</span> flight software framework (v4.4.1), a real code base with design documents, 560 requirements and unit tests that cite requirement IDs. The question I chose for the agent was narrow and verifiable: <em>for a requirement with no test, write one that proves it.</em></p>
+<p class="pull">The model only writes test code. Everything else, from context retrieval to the build, the test run, mutation testing and the commit, is deterministic and policy-checked.</p>
+
+  </div>
+</section>
+<section class="chapter wrap" aria-labelledby="c02">
+  <div class="section-head">
+    <p class="label">02</p>
+    <h2 id="c02">Architecture</h2>
+  </div>
+  <div class="chapter-body">
+
+<figure class="diagram">
+  <div class="scroll">
+    <svg viewBox="0 0 1140 372" role="img" aria-labelledby="dg5-t">
+      <title id="dg5-t">Architecture of the on-premise platform</title>
+      <defs><marker id="dg5-a" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="dg-arrow" d="M0,0 L8,4 L0,8 z"/></marker><marker id="dg5-am" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="dg-arrow mark" d="M0,0 L8,4 L0,8 z"/></marker></defs>
+      <rect class="dg-group" x="8" y="24" width="224" height="252" rx="3"/><text class="dg-g" x="16" y="18">clients</text>
+<rect class="dg-box" x="22" y="44" width="196" height="56" rx="2"/>
+<text class="dg-t" x="32" y="64">IDE assistant</text>
+<text class="dg-s" x="32" y="81">Continue</text>
+<rect class="dg-box" x="22" y="114" width="196" height="56" rx="2"/>
+<text class="dg-t" x="32" y="134">CLI assistant</text>
+<text class="dg-s" x="32" y="151">Aider</text>
+<rect class="dg-box mark" x="22" y="184" width="196" height="70" rx="2"/>
+<text class="dg-t" x="32" y="204">Test-generation agent</text>
+<text class="dg-s" x="32" y="221">LangGraph</text>
+<rect class="dg-box soft" x="22" y="300" width="196" height="56" rx="2"/>
+<text class="dg-t" x="32" y="320">Review branch</text>
+<text class="dg-s" x="32" y="337">one git branch per run</text>
+<rect class="dg-group" x="262" y="24" width="560" height="330" rx="3"/><text class="dg-g" x="270" y="18">on-prem platform · internal network, egress blocked</text>
+<rect class="dg-box" x="290" y="50" width="240" height="70" rx="2"/>
+<text class="dg-t" x="300" y="70">LLM server</text>
+<text class="dg-s" x="300" y="87">llama.cpp or vLLM</text>
+<text class="dg-s" x="300" y="101">OpenAI-compatible API</text>
+<rect class="dg-box dark" x="290" y="150" width="240" height="90" rx="2"/>
+<text class="dg-t on-dark" x="300" y="170">Knowledge MCP server</text>
+<text class="dg-s on-dark-s" x="300" y="187">search, get_symbol, callers,</text>
+<text class="dg-s on-dark-s" x="300" y="201">trace_requirement,</text>
+<text class="dg-s on-dark-s" x="300" y="215">coverage_gaps</text>
+<rect class="dg-box" x="570" y="50" width="230" height="60" rx="2"/>
+<text class="dg-t" x="580" y="70">Embedding server</text>
+<text class="dg-s" x="580" y="87">Qwen3-Embedding</text>
+<rect class="dg-box soft" x="570" y="262" width="230" height="54" rx="2"/>
+<text class="dg-t" x="580" y="282">Neo4j</text>
+<text class="dg-s" x="580" y="299">optional graph store</text>
+<rect class="dg-box" x="290" y="262" width="240" height="76" rx="2"/>
+<text class="dg-t" x="300" y="282">Jenkins + MCP Server plugin</text>
+<text class="dg-s" x="300" y="299">F´ unit-test pipeline</text>
+<text class="dg-s" x="300" y="313">least-privilege account</text>
+<rect class="dg-box" x="880" y="44" width="250" height="70" rx="2"/>
+<text class="dg-t" x="890" y="64">F´ sources</text>
+<text class="dg-s" x="890" y="81">code · tests · design documents</text>
+<rect class="dg-box" x="880" y="160" width="250" height="80" rx="2"/>
+<text class="dg-t" x="890" y="180">Graph snapshot</text>
+<text class="dg-s" x="890" y="197">1,250 files · 5,499 functions</text>
+<text class="dg-s" x="890" y="211">3,261 tests · 560 requirements</text>
+<polyline class="dg-e" points="233,85 289,85" marker-end="url(#dg5-a)"/>
+<text class="dg-l" x="261" y="77" text-anchor="middle">OpenAI API</text>
+<polyline class="dg-e" points="233,195 289,195" marker-end="url(#dg5-a)"/>
+<text class="dg-l" x="261" y="187" text-anchor="middle">MCP</text>
+<polyline class="dg-e" points="219,228 250,228 250,300 289,300" marker-end="url(#dg5-a)"/>
+<text class="dg-l" x="254" y="290" text-anchor="start">MCP</text>
+<polyline class="dg-e" points="120,255 120,299" marker-end="url(#dg5-a)"/>
+<polyline class="dg-e" points="1005,115 1005,159" marker-end="url(#dg5-a)"/>
+<text class="dg-l" x="1015" y="141" text-anchor="start">ingest (tree-sitter)</text>
+<polyline class="dg-e" points="879,200 531,200" marker-end="url(#dg5-a)"/>
+<text class="dg-l" x="705" y="192" text-anchor="middle">snapshot</text>
+<polyline class="dg-e" points="531,165 550,165 550,80 569,80" marker-end="url(#dg5-a)"/>
+<polyline class="dg-e dash" points="531,225 550,225 550,289 569,289" marker-end="url(#dg5-a)"/>
+<polyline class="dg-e" points="531,330 850,330 850,79 879,79" marker-end="url(#dg5-a)"/>
+<text class="dg-l" x="690" y="346" text-anchor="middle">runs the unit tests</text>
+    </svg>
+  </div>
+  <figcaption><span class="fig">Fig. 2</span> The platform. Assistants and the agent talk to one LLM server over an OpenAI-compatible API and to the knowledge server over MCP. A compose overlay puts everything on an internal Docker network, and a smoke test fails if any outbound connection succeeds.</figcaption>
+</figure>
+<ul class="ticks">
+  <li><b>Knowledge:</b> tree-sitter ingestion of code, unit tests, requirement tables and design documents into a typed graph (1,250 source files, 206,656 lines, 21,681 resolved call edges, including F<span class="fp">´</span>'s autocoder conventions), built in about 3 s on a laptop CPU.</li>
+  <li><b>Retrieval:</b> hybrid BM25, dense and graph retrieval served over the Model Context Protocol, so any MCP client can use it.</li>
+  <li><b>Serving:</b> llama.cpp and vLLM profiles in Docker Compose, API keys, ports bound to localhost.</li>
+  <li><b>Sizing:</b> GPU memory (weights, KV cache, linear-attention state) and roofline throughput including mixture-of-experts traffic; every datasheet value carries its source, and unknown values are refused, not guessed.</li>
+  <li><b>Evaluation:</b> 27 purpose-written embedded C tasks scored by execution: strict compile, hidden tests, sanitizers, coverage, mutation testing.</li>
+  <li><b>Engineering:</b> uv, ruff, pyright, pytest with contract tests shared by the in-memory and Neo4j stores, and GitHub Actions running F<span class="fp">´</span>, Neo4j, the air-gapped smoke test and Jenkins over MCP.</li>
+</ul>
+<figure class="diagram">
+  <div class="scroll">
+    <svg viewBox="0 0 1140 232" role="img" aria-labelledby="dg6-t">
+      <title id="dg6-t">The test-generation agent, one requirement at a time</title>
+      <defs><marker id="dg6-a" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="dg-arrow" d="M0,0 L8,4 L0,8 z"/></marker><marker id="dg6-am" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="dg-arrow mark" d="M0,0 L8,4 L0,8 z"/></marker></defs>
+      <rect class="dg-box" x="10" y="50" width="125" height="96" rx="2"/>
+<text class="dg-k" x="20" y="66">1</text>
+<text class="dg-t" x="20" y="84">Gap</text>
+<text class="dg-s" x="20" y="101">requirement</text>
+<text class="dg-s" x="20" y="115">without a test</text>
+<rect class="dg-box" x="150" y="50" width="125" height="96" rx="2"/>
+<text class="dg-k" x="160" y="66">2</text>
+<text class="dg-t" x="160" y="84">Context</text>
+<text class="dg-s" x="160" y="101">over MCP: code,</text>
+<text class="dg-s" x="160" y="115">design, tests</text>
+<polyline class="dg-e" points="136,98.0 149,98.0" marker-end="url(#dg6-a)"/>
+<rect class="dg-box mark" x="290" y="50" width="125" height="96" rx="2"/>
+<text class="dg-k" x="300" y="66">3</text>
+<text class="dg-t" x="300" y="84">Model</text>
+<text class="dg-s" x="300" y="101">writes the</text>
+<text class="dg-s" x="300" y="115">test only</text>
+<polyline class="dg-e" points="276,98.0 289,98.0" marker-end="url(#dg6-a)"/>
+<rect class="dg-box" x="430" y="50" width="125" height="96" rx="2"/>
+<text class="dg-k" x="440" y="66">4</text>
+<text class="dg-t" x="440" y="84">Policy</text>
+<text class="dg-s" x="440" y="101">only test files</text>
+<text class="dg-s" x="440" y="115">may change</text>
+<polyline class="dg-e" points="416,98.0 429,98.0" marker-end="url(#dg6-a)"/>
+<rect class="dg-box" x="570" y="50" width="125" height="96" rx="2"/>
+<text class="dg-k" x="580" y="66">5</text>
+<text class="dg-t" x="580" y="84">Build</text>
+<text class="dg-s" x="580" y="101">F´ unit-test</text>
+<text class="dg-s" x="580" y="115">build</text>
+<polyline class="dg-e" points="556,98.0 569,98.0" marker-end="url(#dg6-a)"/>
+<rect class="dg-box" x="710" y="50" width="125" height="96" rx="2"/>
+<text class="dg-k" x="720" y="66">6</text>
+<text class="dg-t" x="720" y="84">Test</text>
+<text class="dg-s" x="720" y="101">run 3×, then</text>
+<text class="dg-s" x="720" y="115">the full suite</text>
+<polyline class="dg-e" points="696,98.0 709,98.0" marker-end="url(#dg6-a)"/>
+<rect class="dg-box" x="850" y="50" width="125" height="96" rx="2"/>
+<text class="dg-k" x="860" y="66">7</text>
+<text class="dg-t" x="860" y="84">Mutants</text>
+<text class="dg-s" x="860" y="101">seeded bugs</text>
+<text class="dg-s" x="860" y="115">must fail it</text>
+<polyline class="dg-e" points="836,98.0 849,98.0" marker-end="url(#dg6-a)"/>
+<rect class="dg-box dark" x="990" y="50" width="125" height="96" rx="2"/>
+<text class="dg-k" x="1000" y="66">8</text>
+<text class="dg-t on-dark" x="1000" y="84">Commit</text>
+<text class="dg-s on-dark-s" x="1000" y="101">review branch,</text>
+<text class="dg-s on-dark-s" x="1000" y="115">AI disclosure</text>
+<polyline class="dg-e" points="976,98.0 989,98.0" marker-end="url(#dg6-a)"/>
+<polyline class="dg-e mark" points="772,147 772,190 352,190 352,147" marker-end="url(#dg6-am)"/>
+<text class="dg-l" x="562.0" y="210" text-anchor="middle">repair from compiler and test output, bounded attempts</text>
+    </svg>
+  </div>
+  <figcaption><span class="fig">Fig. 3</span> The agent loop. A test counts as evidence only after the build, three passing runs, the full suite and the mutation check, and then only once an engineer accepts it in the review queue.</figcaption>
+</figure>
+
+  </div>
+</section>
+<section class="chapter wrap" aria-labelledby="c03">
+  <div class="section-head">
+    <p class="label">03</p>
+    <h2 id="c03">Results</h2>
+  </div>
+  <div class="chapter-body">
+
+<h3>Traceability recovery</h3>
+<p>No signal alone is enough: the graph knows <em>where</em> to look, because requirements are allocated to components, and the text knows <em>which</em> test. Lexical and dense retrieval fail on different requirements, so fusing them inside the graph's candidate set works best. LLM reranking lowered precision at the top and cost 10 calls per requirement, so it is off by default.</p>
+<div class="bars" role="group" aria-label="Requirement → test retrieval, MAP over 151 requirements (95% CI)">
+<p class="bars-title">Requirement → test retrieval, MAP over 151 requirements (95% CI)</p>
+<div class="row"><span>Graph only</span><span class="track" aria-hidden="true"><span class="fill" style="width:31.1%"></span><span class="ci" style="left:27.5%;width:7.3%"></span></span><span class="val">0.249</span></div>
+<div class="row"><span>BM25 over code</span><span class="track" aria-hidden="true"><span class="fill" style="width:61.0%"></span><span class="ci" style="left:53.4%;width:15.1%"></span></span><span class="val">0.488</span></div>
+<div class="row"><span>Dense embeddings</span><span class="track" aria-hidden="true"><span class="fill" style="width:59.9%"></span><span class="ci" style="left:53.5%;width:12.9%"></span></span><span class="val">0.479</span></div>
+<div class="row"><span>Graph-constrained BM25</span><span class="track" aria-hidden="true"><span class="fill" style="width:71.1%"></span><span class="ci" style="left:64.1%;width:14.1%"></span></span><span class="val">0.569</span></div>
+<div class="row"><span>Graph-constrained dense</span><span class="track" aria-hidden="true"><span class="fill" style="width:71.6%"></span><span class="ci" style="left:65.1%;width:12.2%"></span></span><span class="val">0.573</span></div>
+<div class="row hl"><span>Graph-constrained fusion</span><span class="track" aria-hidden="true"><span class="fill" style="width:76.1%"></span><span class="ci" style="left:69.1%;width:13.4%"></span></span><span class="val">0.609</span></div>
+<div class="row"><span>Fusion + LLM rerank</span><span class="track" aria-hidden="true"><span class="fill" style="width:73.0%"></span><span class="ci" style="left:66.9%;width:12.2%"></span></span><span class="val">0.584</span></div>
+<p class="note">Ground truth: the 481 requirement tags F<span class="fp">´</span> developers placed in tests, masked. Each method ranks all 3,261 test cases for every requirement.</p>
+</div>
+<h3>Test-generation agent on 28 requirement gaps</h3>
+<div class="table-scroll"><table class="results wide">
+<caption>Version 1 → version 2 of the agent, same 28 requirements and models</caption>
+<thead><tr><th scope="col">Model</th><th scope="col">Verified tests</th><th scope="col">First answer compiles</th><th scope="col">Mutants killed (v2)</th><th scope="col">Median time</th></tr></thead>
+<tbody>
+<tr><th scope="row">Qwen3-Coder-30B-A3B</th><td>11 → 18 of 28</td><td>52% → 81%</td><td>42 / 64</td><td>43 s</td></tr>
+<tr><th scope="row">Devstral-Small-2-24B</th><td>8 → 18 of 28</td><td>15% → 67%</td><td>35 / 67</td><td>94 s</td></tr>
+<tr class="hl"><th scope="row">Both models together</th><td>21 of 28</td><td colspan="3">15 requirements verified by both</td></tr>
+</tbody></table></div>
+<p>Version 1 failed 121 attempts. Classifying them showed that 54% came from one confusion the agent itself reinforced: a did-you-mean hint offered a dispatch method F<span class="fp">´</span> v4 does not have. Version 2 states the component kind and the exact call, fixes a patcher bug and shows the source of failed assertions. Verified tests went from 11 to 18 and from 8 to 18 (exact McNemar p = 0.016 and 0.013).</p>
+<h3>Serving and sizing on 2× Tesla T4</h3>
+<ul class="ticks">
+  <li>Mixture-of-experts models with about 3 B active parameters decode 4 to 6 times faster than dense 24 to 27 B models on these bandwidth-bound GPUs.</li>
+  <li>vLLM wins decode and concurrency on the MoE model, but its prefill on Turing is 5 times slower than llama.cpp, which decides 9k-token agent steps.</li>
+  <li>One 2× T4 server holds about four concurrent chat users at 20 tokens per second each.</li>
+  <li>Calibrated on these runs, the sizing model predicts decode within ±11% for a held-out model and the chat capacity of one server within 7% of the load test.</li>
+</ul>
+
+  </div>
+</section>
+<section class="chapter wrap" aria-labelledby="c04">
+  <div class="section-head">
+    <p class="label">04</p>
+    <h2 id="c04">The engineering console</h2>
+  </div>
+  <div class="chapter-body">
+
+<p>The console puts the platform in front of engineers: a traceability map of the whole code base, the evidence behind each requirement, code search, live agent runs streamed as they happen, a review queue with keyboard verdicts and an export, and the GPU sizing model. It ships as a Docker image with the C++ toolchain and an F<span class="fp">´</span> workspace, and as a read-only demo on GitHub Pages.</p>
+<div class="gallery">
+<figure class="plate">
+  <a href="../img/oge-run.webp"><img src="../img/oge-run.webp" width="1600" height="1000" loading="lazy" alt="Agent run page: each requirement goes through baseline, context, model, policy, build, test, commit and mutant steps."></a>
+  <figcaption><span class="fig">Fig. 4</span> An agent run, step by step.</figcaption>
+</figure>
+<figure class="plate">
+  <a href="../img/oge-review.webp"><img src="../img/oge-review.webp" width="1600" height="1000" loading="lazy" alt="Review page in the dark theme: queue of generated tests and the selected test&#x27;s code."></a>
+  <figcaption><span class="fig">Fig. 5</span> The review queue, where an engineer accepts or rejects each generated test.</figcaption>
+</figure>
+</div>
+<p class="links-row"><a href="https://djihad-elhak.github.io/onprem-genai-embedded/">Live demo</a><a href="https://github.com/djihad-elhak/onprem-genai-embedded">Code</a><a href="https://github.com/djihad-elhak/onprem-genai-embedded/blob/main/paper/main.pdf">Paper (6 pages)</a></p>
+
+  </div>
+</section>
+<section class="chapter wrap" aria-labelledby="c05">
+  <div class="section-head">
+    <p class="label">05</p>
+    <h2 id="c05">Limits</h2>
+  </div>
+  <div class="chapter-body">
+
+<ul class="ticks">
+  <li>28 requirement gaps and two models are enough to see a direction, not to rank models finely.</li>
+  <li>What still fails is the models' knowledge of the F<span class="fp">´</span> API (invented enum values and include paths) and of component preconditions.</li>
+  <li>The GPU numbers come from Kaggle's 2× T4; the sizing model is calibrated there and has to be re-measured on the target GPUs.</li>
+  <li>An AI pre-review rated the 36 verified tests as 30 relevant and 6 partially relevant; an engineer still has to confirm them.</li>
+</ul>
+
+  </div>
+</section>
+
+<nav class="pager wrap" aria-label="Other projects"><a class="prev" href="spermnet.html"><span>← Previous</span><b>SpermNet and the Andrology Console</b></a><a class="next" href="trashgo.html"><span>Next →</span><b>ViT-RealWaste and TrashGo</b></a></nav>
+</main>
+
+<footer class="contact" id="contact">
+  <div class="wrap">
+    <p class="label">Contact</p>
+    <p class="contact-line">For an internship from February 2027, write to <a href="mailto:djoudelhak@gmail.com">djoudelhak@gmail.com</a>. I answer in French or English.</p>
+    <ul class="contact-links">
+      <li><a href="https://www.linkedin.com/in/djoud-el-hak-belkhir-055977223/" rel="noopener">LinkedIn</a></li>
+      <li><a href="https://github.com/djihad-elhak" rel="noopener">GitHub</a></li>
+      <li><a href="https://www.kaggle.com/djihadelhakbelkhir" rel="noopener">Kaggle</a></li>
+    </ul>
+    <p class="colophon">Set in Newsreader and IBM Plex. No cookies, no tracking.</p>
+  </div>
+</footer>
+
+</body>
+</html>

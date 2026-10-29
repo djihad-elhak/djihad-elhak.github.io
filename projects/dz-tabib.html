@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DZ-Tabib, Djoud El Hak Belkhir</title>
+<meta name="description" content="DZ-Tabib, a doctor appointment platform for Algeria: Django REST backend, ID card parsing, radius search and video visits.">
+<meta property="og:title" content="DZ-Tabib, Djoud El Hak Belkhir">
+<meta property="og:description" content="DZ-Tabib, a doctor appointment platform for Algeria: Django REST backend, ID card parsing, radius search and video visits.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://djihad-elhak.github.io/projects/dz-tabib.html">
+<meta property="og:image" content="https://djihad-elhak.github.io/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="preload" href="../fonts/newsreader-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../fonts/ibm-plex-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="masthead">
+  <div class="wrap masthead-row">
+    <a class="masthead-name" href="../#top">Djoud El Hak Belkhir</a>
+    <nav aria-label="Sections">
+      <ul>
+        <li><a href="../#work">Work</a></li>
+        <li><a href="../#experience">Experience</a></li>
+        <li><a href="../#education">Education</a></li>
+        <li><a href="../#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <p class="masthead-meta">Case study 1.5</p>
+  </div>
+</header>
+
+<main id="main">
+<header class="page-head wrap">
+  <p class="crumbs"><a href="../#work">Selected work</a><span aria-hidden="true">/</span><span>1.5</span></p>
+  <div class="title-row"><span class="logo logo-lg"><img src="../img/logos/dztabib.webp" width="160" height="160" alt=""></span><h1>DZ-Tabib</h1></div>
+  <p class="standfirst">A doctor appointment platform for Algeria: search by distance, specialty and insurance, booking on site or by video, and doctor onboarding from the national ID card.</p>
+  <dl class="factsheet">
+  <div><dt>Context</dt><dd>Web platform</dd></div>
+  <div><dt>My part</dt><dd>Backend API</dd></div>
+  <div><dt>Stack</dt><dd>Django 4.2, Django REST, MySQL, Docker</dd></div>
+  <div><dt>Links</dt><dd><a href="https://github.com/djihad-elhak/tabibi_dz">Code</a></dd></div>
+</dl>
+</header>
+
+<div class="wrap">
+<figure class="plate">
+  <a href="../img/dztabib-home.webp"><img src="../img/dztabib-home.webp" width="1600" height="864" alt="DZ-Tabib landing page: Meet the Best Doctors, with a button to make an appointment."></a>
+  <figcaption><span class="fig">Fig. 1</span> DZ-Tabib, landing page.</figcaption>
+</figure>
+</div>
+
+<section class="chapter wrap" aria-labelledby="c01">
+  <div class="section-head">
+    <p class="label">01</p>
+    <h2 id="c01">Architecture</h2>
+  </div>
+  <div class="chapter-body">
+
+<p>Tabibi (طبيبي, "my doctor") is an appointment product for Algeria with three roles: patients find a doctor near them and book a visit on site or by video, doctors publish their available slots for a day and receive bookings, and an administrator approves new doctors. I built the backend API.</p>
+<figure class="diagram">
+  <div class="scroll">
+    <svg viewBox="0 0 1140 352" role="img" aria-labelledby="dg10-t">
+      <title id="dg10-t">DZ-Tabib backend architecture</title>
+      <defs><marker id="dg10-a" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="dg-arrow" d="M0,0 L8,4 L0,8 z"/></marker><marker id="dg10-am" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="dg-arrow mark" d="M0,0 L8,4 L0,8 z"/></marker></defs>
+      <rect class="dg-box" x="10" y="40" width="170" height="60" rx="2"/>
+<text class="dg-t" x="20" y="60">Patient</text>
+<text class="dg-s" x="20" y="77">search, book, rate</text>
+<rect class="dg-box" x="10" y="130" width="170" height="60" rx="2"/>
+<text class="dg-t" x="20" y="150">Doctor</text>
+<text class="dg-s" x="20" y="167">day sheets, bookings</text>
+<rect class="dg-box" x="10" y="220" width="170" height="60" rx="2"/>
+<text class="dg-t" x="20" y="240">Administrator</text>
+<text class="dg-s" x="20" y="257">approves doctors</text>
+<rect class="dg-group" x="230" y="22" width="440" height="310" rx="3"/><text class="dg-g" x="238" y="16">Django REST API · cookie JWT</text>
+<rect class="dg-box dark" x="250" y="45" width="195" height="125" rx="2"/>
+<text class="dg-t on-dark" x="260" y="65">dz_auth</text>
+<text class="dg-s on-dark-s" x="260" y="82">registration wizard</text>
+<text class="dg-s on-dark-s" x="260" y="96">email OTP, login</text>
+<text class="dg-s on-dark-s" x="260" y="110">ID card parsing</text>
+<text class="dg-s on-dark-s" x="260" y="124">doctor approval</text>
+<rect class="dg-box" x="460" y="45" width="195" height="125" rx="2"/>
+<text class="dg-t" x="470" y="65">appointments</text>
+<text class="dg-s" x="470" y="82">day sheets as slot bits</text>
+<text class="dg-s" x="470" y="96">bookings, history</text>
+<text class="dg-s" x="470" y="110">ratings after a visit</text>
+<text class="dg-s" x="470" y="124">Whereby rooms</text>
+<rect class="dg-box" x="250" y="185" width="195" height="125" rx="2"/>
+<text class="dg-t" x="260" y="205">search</text>
+<text class="dg-s" x="260" y="222">doctors within a radius</text>
+<text class="dg-s" x="260" y="236">(Haversine, km)</text>
+<text class="dg-s" x="260" y="250">specialty, insurance,</text>
+<text class="dg-s" x="260" y="264">day</text>
+<rect class="dg-box" x="460" y="185" width="195" height="125" rx="2"/>
+<text class="dg-t" x="470" y="205">account_infos</text>
+<text class="dg-s" x="470" y="222">password change</text>
+<rect class="dg-box soft" x="730" y="25" width="190" height="54" rx="2"/>
+<text class="dg-t" x="740" y="45">MySQL</text>
+<text class="dg-s" x="740" y="62">product tables, raw SQL</text>
+<polyline class="dg-e" points="671,177 700,177 700,52 729,52" marker-end="url(#dg10-a)"/>
+<rect class="dg-box soft" x="730" y="89" width="190" height="54" rx="2"/>
+<text class="dg-t" x="740" y="109">SQLite</text>
+<text class="dg-s" x="740" y="126">Django sessions only</text>
+<polyline class="dg-e" points="671,177 700,177 700,116 729,116" marker-end="url(#dg10-a)"/>
+<rect class="dg-box soft" x="730" y="153" width="190" height="54" rx="2"/>
+<text class="dg-t" x="740" y="173">Gmail SMTP</text>
+<text class="dg-s" x="740" y="190">OTP and booking mail</text>
+<polyline class="dg-e" points="671,177 700,177 700,180 729,180" marker-end="url(#dg10-a)"/>
+<rect class="dg-box soft" x="730" y="217" width="190" height="54" rx="2"/>
+<text class="dg-t" x="740" y="237">OCR.space</text>
+<text class="dg-s" x="740" y="254">text of the ID card</text>
+<polyline class="dg-e" points="671,177 700,177 700,244 729,244" marker-end="url(#dg10-a)"/>
+<rect class="dg-box soft" x="730" y="281" width="190" height="54" rx="2"/>
+<text class="dg-t" x="740" y="301">Whereby</text>
+<text class="dg-s" x="740" y="318">remote visit rooms</text>
+<polyline class="dg-e" points="671,177 700,177 700,308 729,308" marker-end="url(#dg10-a)"/>
+<rect class="dg-box" x="960" y="25" width="170" height="120" rx="2"/>
+<text class="dg-t" x="970" y="45">Delivery</text>
+<text class="dg-s" x="970" y="62">Docker image</text>
+<text class="dg-s" x="970" y="76">built and pushed by</text>
+<text class="dg-s" x="970" y="90">GitHub Actions on main</text>
+<text class="dg-s" x="970" y="104">hosted on Render</text>
+<polyline class="dg-e" points="181,70 229,70" marker-end="url(#dg10-a)"/>
+<polyline class="dg-e" points="181,160 229,160" marker-end="url(#dg10-a)"/>
+<polyline class="dg-e" points="181,250 229,250" marker-end="url(#dg10-a)"/>
+    </svg>
+  </div>
+  <figcaption><span class="fig">Fig. 2</span> The backend. Three roles share one API; product data lives in MySQL behind raw SQL, sessions in SQLite, and identity comes from the national ID card.</figcaption>
+</figure>
+<figure class="diagram">
+  <div class="scroll">
+    <svg viewBox="0 0 1140 196" role="img" aria-labelledby="dg11-t">
+      <title id="dg11-t">Doctor onboarding, step by step</title>
+      <defs><marker id="dg11-a" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="dg-arrow" d="M0,0 L8,4 L0,8 z"/></marker><marker id="dg11-am" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="dg-arrow mark" d="M0,0 L8,4 L0,8 z"/></marker></defs>
+      <rect class="dg-box" x="10" y="40" width="148" height="104" rx="2"/>
+<text class="dg-k" x="20" y="56">1</text>
+<text class="dg-t" x="20" y="74">Credentials</text>
+<text class="dg-s" x="20" y="91">email, phone,</text>
+<text class="dg-s" x="20" y="105">password</text>
+<rect class="dg-box" x="173" y="40" width="148" height="104" rx="2"/>
+<text class="dg-k" x="183" y="56">2</text>
+<text class="dg-t" x="183" y="74">OTP</text>
+<text class="dg-s" x="183" y="91">code sent</text>
+<text class="dg-s" x="183" y="105">by email</text>
+<polyline class="dg-e" points="159,92.0 172,92.0" marker-end="url(#dg11-a)"/>
+<rect class="dg-box" x="336" y="40" width="148" height="104" rx="2"/>
+<text class="dg-k" x="346" y="56">3</text>
+<text class="dg-t" x="346" y="74">Address</text>
+<text class="dg-s" x="346" y="91">street, latitude,</text>
+<text class="dg-s" x="346" y="105">longitude</text>
+<polyline class="dg-e" points="322,92.0 335,92.0" marker-end="url(#dg11-a)"/>
+<rect class="dg-box mark" x="499" y="40" width="148" height="104" rx="2"/>
+<text class="dg-k" x="509" y="56">4</text>
+<text class="dg-t" x="509" y="74">ID card</text>
+<text class="dg-s" x="509" y="91">OCR → name,</text>
+<text class="dg-s" x="509" y="105">birth date, card no.</text>
+<polyline class="dg-e" points="485,92.0 498,92.0" marker-end="url(#dg11-a)"/>
+<rect class="dg-box" x="662" y="40" width="148" height="104" rx="2"/>
+<text class="dg-k" x="672" y="56">5</text>
+<text class="dg-t" x="672" y="74">Profession</text>
+<text class="dg-s" x="672" y="91">specialty, institute,</text>
+<text class="dg-s" x="672" y="105">experience</text>
+<polyline class="dg-e" points="648,92.0 661,92.0" marker-end="url(#dg11-a)"/>
+<rect class="dg-box" x="825" y="40" width="148" height="104" rx="2"/>
+<text class="dg-k" x="835" y="56">6</text>
+<text class="dg-t" x="835" y="74">Diploma</text>
+<text class="dg-s" x="835" y="91">PDF upload →</text>
+<text class="dg-s" x="835" y="105">pending form</text>
+<polyline class="dg-e" points="811,92.0 824,92.0" marker-end="url(#dg11-a)"/>
+<rect class="dg-box dark" x="988" y="40" width="148" height="104" rx="2"/>
+<text class="dg-k" x="998" y="56">7</text>
+<text class="dg-t on-dark" x="998" y="74">Approval</text>
+<text class="dg-s on-dark-s" x="998" y="91">admin approves →</text>
+<text class="dg-s on-dark-s" x="998" y="105">doctor can log in</text>
+<polyline class="dg-e" points="974,92.0 987,92.0" marker-end="url(#dg11-a)"/>
+<text class="dg-s" x="10" y="178" text-anchor="start">The wizard keeps its state in the server session for an hour; nothing is written to the doctor table until an administrator approves.</text>
+    </svg>
+  </div>
+  <figcaption><span class="fig">Fig. 3</span> Registration as a session wizard rather than one request. Patients follow the same first steps; their ID text is parsed from the card.</figcaption>
+</figure>
+<ul class="ticks">
+  <li><b>Search:</b> doctors within a radius of the patient, by Haversine distance, filtered by specialty, insurance coverage and a day with free slots.</li>
+  <li><b>Slots:</b> a doctor's day is a string of bits, one per hourly slot; booking a slot clears its bit, and a remote visit opens a Whereby room and mails the link.</li>
+  <li><b>Identity:</b> names, birth date and card number are parsed from the OCR text of the Algerian national ID card.</li>
+  <li><b>Ratings:</b> accepted only for a visit that has already happened.</li>
+  <li><b>Delivery:</b> a Docker image built and pushed by GitHub Actions on every push to main.</li>
+</ul>
+
+  </div>
+</section>
+<section class="chapter wrap" aria-labelledby="c02">
+  <div class="section-head">
+    <p class="label">02</p>
+    <h2 id="c02">Screens</h2>
+  </div>
+  <div class="chapter-body">
+
+<div class="gallery">
+<figure class="plate">
+  <a href="../img/dztabib-search.webp"><img src="../img/dztabib-search.webp" width="1079" height="872" loading="lazy" alt="Doctor search with filters and a list of doctors."></a>
+  <figcaption><span class="fig">Fig. 4</span> Search with filters for specialty, wilaya, insurance and availability.</figcaption>
+</figure>
+<figure class="plate">
+  <a href="../img/dztabib-booking.webp"><img src="../img/dztabib-booking.webp" width="880" height="918" loading="lazy" alt="Booking calendar with half-hour time slots."></a>
+  <figcaption><span class="fig">Fig. 5</span> Booking a slot.</figcaption>
+</figure>
+<figure class="plate span-full">
+  <a href="../img/dztabib-profile.webp"><img src="../img/dztabib-profile.webp" width="1033" height="741" loading="lazy" alt="Doctor profile with speciality, experience, clinic address, accepted insurances and a map."></a>
+  <figcaption><span class="fig">Fig. 6</span> Doctor profile with clinic location and accepted insurances.</figcaption>
+</figure>
+</div>
+
+  </div>
+</section>
+<section class="chapter wrap" aria-labelledby="c03">
+  <div class="section-head">
+    <p class="label">03</p>
+    <h2 id="c03">What I would change</h2>
+  </div>
+  <div class="chapter-body">
+
+<p>Writing the README later meant reading the code as a reviewer would, and I documented what I would change before any new deployment: move every secret out of the settings and rotate it, give the JWT a random subject and an expiry instead of carrying the password hash, hash administrator passwords, close three unauthenticated reads, and turn off debug mode. The list is public in the repository, next to the known functional gaps.</p>
+<p class="links-row"><a href="https://github.com/djihad-elhak/tabibi_dz">Code and README</a></p>
+
+  </div>
+</section>
+
+<nav class="pager wrap" aria-label="Other projects"><a class="prev" href="kd-vlm.html"><span>← Previous</span><b>Feature distillation of MobileVLM</b></a><a class="next" href="autocare.html"><span>Next →</span><b>AutoCare</b></a></nav>
+</main>
+
+<footer class="contact" id="contact">
+  <div class="wrap">
+    <p class="label">Contact</p>
+    <p class="contact-line">For an internship from February 2027, write to <a href="mailto:djoudelhak@gmail.com">djoudelhak@gmail.com</a>. I answer in French or English.</p>
+    <ul class="contact-links">
+      <li><a href="https://www.linkedin.com/in/djoud-el-hak-belkhir-055977223/" rel="noopener">LinkedIn</a></li>
+      <li><a href="https://github.com/djihad-elhak" rel="noopener">GitHub</a></li>
+      <li><a href="https://www.kaggle.com/djihadelhakbelkhir" rel="noopener">Kaggle</a></li>
+    </ul>
+    <p class="colophon">Set in Newsreader and IBM Plex. No cookies, no tracking.</p>
+  </div>
+</footer>
+
+</body>
+</html>

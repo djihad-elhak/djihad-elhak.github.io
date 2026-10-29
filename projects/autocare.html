@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AutoCare, Djoud El Hak Belkhir</title>
+<meta name="description" content="AutoCare, booking and repair tracking for a car workshop: Django REST backend, staff workflow and status emails.">
+<meta property="og:title" content="AutoCare, Djoud El Hak Belkhir">
+<meta property="og:description" content="AutoCare, booking and repair tracking for a car workshop: Django REST backend, staff workflow and status emails.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://djihad-elhak.github.io/projects/autocare.html">
+<meta property="og:image" content="https://djihad-elhak.github.io/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="preload" href="../fonts/newsreader-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../fonts/ibm-plex-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="masthead">
+  <div class="wrap masthead-row">
+    <a class="masthead-name" href="../#top">Djoud El Hak Belkhir</a>
+    <nav aria-label="Sections">
+      <ul>
+        <li><a href="../#work">Work</a></li>
+        <li><a href="../#experience">Experience</a></li>
+        <li><a href="../#education">Education</a></li>
+        <li><a href="../#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <p class="masthead-meta">Case study 1.6</p>
+  </div>
+</header>
+
+<main id="main">
+<header class="page-head wrap">
+  <p class="crumbs"><a href="../#work">Selected work</a><span aria-hidden="true">/</span><span>1.6</span></p>
+  <div class="title-row"><span class="logo logo-lg"><img src="../img/logos/autocare.webp" width="160" height="160" alt=""></span><h1>AutoCare</h1></div>
+  <p class="standfirst">Booking and repair tracking for a car workshop: customers book a slot, staff move each car through arrival and repair, and every step emails the customer.</p>
+  <dl class="factsheet">
+  <div><dt>Context</dt><dd>Web platform</dd></div>
+  <div><dt>My part</dt><dd>Backend API</dd></div>
+  <div><dt>Stack</dt><dd>Django 5, Django REST, MySQL, Jazzmin</dd></div>
+  <div><dt>Links</dt><dd><a href="https://github.com/djihad-elhak/AutoCare">Code</a> · <a href="https://www.figma.com/file/MwRsp9bNBfrbHmAETpBvhf/Projet-%28copie%29?node-id=0%3A1" rel="noopener">Figma</a></dd></div>
+</dl>
+</header>
+
+<div class="wrap">
+<figure class="plate">
+  <a href="../img/autocare-home.webp"><img src="../img/autocare-home.webp" width="1600" height="900" alt="AutoCare landing page with the headline Revitalize Your Ride with Expert Care."></a>
+  <figcaption><span class="fig">Fig. 1</span> AutoCare, customer landing page.</figcaption>
+</figure>
+</div>
+
+<section class="chapter wrap" aria-labelledby="c01">
+  <div class="section-head">
+    <p class="label">01</p>
+    <h2 id="c01">How it works</h2>
+  </div>
+  <div class="chapter-body">
+
+<p>A workshop appointment system: customers book a service for their car, staff on a brand team move each car through arrival and repair, and an administrator manages brands, services, teams and blocked dates in a Django admin themed with Jazzmin. I built the backend API.</p>
+<figure class="diagram">
+  <div class="scroll">
+    <svg viewBox="0 0 1140 320" role="img" aria-labelledby="dg12-t">
+      <title id="dg12-t">AutoCare: who does what, and how a booking ends</title>
+      <defs><marker id="dg12-a" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="dg-arrow" d="M0,0 L8,4 L0,8 z"/></marker><marker id="dg12-am" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="dg-arrow mark" d="M0,0 L8,4 L0,8 z"/></marker></defs>
+      <rect class="dg-box" x="10" y="40" width="180" height="80" rx="2"/>
+<text class="dg-t" x="20" y="60">Customer</text>
+<text class="dg-s" x="20" y="77">registers, logs in</text>
+<text class="dg-s" x="20" y="91">books a slot</text>
+<rect class="dg-box" x="10" y="210" width="180" height="80" rx="2"/>
+<text class="dg-t" x="20" y="230">Staff, brand team</text>
+<text class="dg-s" x="20" y="247">sees bookings</text>
+<text class="dg-s" x="20" y="261">of its brand</text>
+<rect class="dg-box mark" x="250" y="40" width="200" height="90" rx="2"/>
+<text class="dg-t" x="260" y="60">Booking</text>
+<text class="dg-s" x="260" y="77">brand, services, plate</text>
+<text class="dg-s" x="260" y="91">date · status NOT_YET</text>
+<rect class="dg-box soft" x="250" y="230" width="200" height="70" rx="2"/>
+<text class="dg-t" x="260" y="250">Admin (Jazzmin)</text>
+<text class="dg-s" x="260" y="267">brands, services, teams,</text>
+<text class="dg-s" x="260" y="281">blocked dates</text>
+<rect class="dg-box" x="510" y="20" width="170" height="60" rx="2"/>
+<text class="dg-t" x="520" y="40">Arrived</text>
+<text class="dg-s" x="520" y="57">email to customer</text>
+<rect class="dg-box" x="740" y="20" width="170" height="60" rx="2"/>
+<text class="dg-t" x="750" y="40">Repaired</text>
+<text class="dg-s" x="750" y="57">email</text>
+<rect class="dg-box" x="740" y="100" width="170" height="60" rx="2"/>
+<text class="dg-t" x="750" y="120">Irreparable</text>
+<text class="dg-s" x="750" y="137">email</text>
+<rect class="dg-box" x="510" y="170" width="170" height="70" rx="2"/>
+<text class="dg-t" x="520" y="190">Did not arrive</text>
+<text class="dg-s" x="520" y="207">manual, or 24 h</text>
+<text class="dg-s" x="520" y="221">dashboard sweep</text>
+<rect class="dg-box dark" x="960" y="70" width="170" height="110" rx="2"/>
+<text class="dg-t on-dark" x="970" y="90">BookingHistory</text>
+<text class="dg-s on-dark-s" x="970" y="107">snapshot of the</text>
+<text class="dg-s on-dark-s" x="970" y="121">booking, live row</text>
+<text class="dg-s on-dark-s" x="970" y="135">deleted</text>
+<polyline class="dg-e" points="191,80 249,80" marker-end="url(#dg12-a)"/>
+<polyline class="dg-e" points="191,250 220,250 220,110 249,110" marker-end="url(#dg12-a)"/>
+<text class="dg-l" x="226" y="180" text-anchor="start">manages</text>
+<polyline class="dg-e" points="451,70 480,70 480,50 509,50" marker-end="url(#dg12-a)"/>
+<polyline class="dg-e" points="451,100 480,100 480,205 509,205" marker-end="url(#dg12-a)"/>
+<polyline class="dg-e" points="681,50 739,50" marker-end="url(#dg12-a)"/>
+<polyline class="dg-e" points="681,60 710,60 710,130 739,130" marker-end="url(#dg12-a)"/>
+<polyline class="dg-e" points="911,50 935,50 935,105 959,105" marker-end="url(#dg12-a)"/>
+<polyline class="dg-e" points="911,130 959,130" marker-end="url(#dg12-a)"/>
+<polyline class="dg-e" points="681,205 935,205 935,160 959,160" marker-end="url(#dg12-a)"/>
+<polyline class="dg-e dash" points="350,229 350,131" marker-end="url(#dg12-a)"/>
+<rect class="dg-box soft" x="510" y="262" width="400" height="46" rx="2"/>
+<text class="dg-t" x="520" y="282">Calendar: a day with 4 bookings, or blocked by hand, is unavailable</text>
+    </svg>
+  </div>
+  <figcaption><span class="fig">Fig. 2</span> Bookings move through arrival and repair; staff actions send a status email and close the booking into a history record.</figcaption>
+</figure>
+<ul class="ticks">
+  <li><b>Accounts:</b> customers and staff are separate user models, each with its own JWT login; customers can reset their password with a six-digit emailed token.</li>
+  <li><b>Status emails:</b> HTML templates for arrived, did not arrive, repaired and irreparable.</li>
+  <li><b>Capacity:</b> a signal keeps a per-day booking count; full or blocked days are returned to the calendar.</li>
+  <li><b>Data model:</b> brands, services per brand, teams per brand, bookings with many services, a history snapshot and a contact form.</li>
+</ul>
+
+  </div>
+</section>
+<section class="chapter wrap" aria-labelledby="c02">
+  <div class="section-head">
+    <p class="label">02</p>
+    <h2 id="c02">Screens and design</h2>
+  </div>
+  <div class="chapter-body">
+
+<div class="gallery">
+<figure class="plate">
+  <a href="../img/autocare-orders.webp"><img src="../img/autocare-orders.webp" width="1600" height="739" loading="lazy" alt="Staff view of recent orders; client names and phone numbers are blurred."></a>
+  <figcaption><span class="fig">Fig. 3</span> Staff view of recent orders. Names and phone numbers blurred.</figcaption>
+</figure>
+<figure class="plate">
+  <a href="../img/autocare-actions.webp"><img src="../img/autocare-actions.webp" width="1600" height="741" loading="lazy" alt="Staff view with the actions menu open: copy plate number, car repaired, car arrived, car unrepairable."></a>
+  <figcaption><span class="fig">Fig. 4</span> The actions a staff member can take on a booking.</figcaption>
+</figure>
+</div>
+<p class="links-row"><a href="https://github.com/djihad-elhak/AutoCare">Code and README</a><a href="https://www.figma.com/file/MwRsp9bNBfrbHmAETpBvhf/Projet-%28copie%29?node-id=0%3A1" rel="noopener">Figma design</a></p>
+
+  </div>
+</section>
+
+<nav class="pager wrap" aria-label="Other projects"><a class="prev" href="dz-tabib.html"><span>← Previous</span><b>DZ-Tabib</b></a><span></span></nav>
+</main>
+
+<footer class="contact" id="contact">
+  <div class="wrap">
+    <p class="label">Contact</p>
+    <p class="contact-line">For an internship from February 2027, write to <a href="mailto:djoudelhak@gmail.com">djoudelhak@gmail.com</a>. I answer in French or English.</p>
+    <ul class="contact-links">
+      <li><a href="https://www.linkedin.com/in/djoud-el-hak-belkhir-055977223/" rel="noopener">LinkedIn</a></li>
+      <li><a href="https://github.com/djihad-elhak" rel="noopener">GitHub</a></li>
+      <li><a href="https://www.kaggle.com/djihadelhakbelkhir" rel="noopener">Kaggle</a></li>
+    </ul>
+    <p class="colophon">Set in Newsreader and IBM Plex. No cookies, no tracking.</p>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Feature distillation of MobileVLM, Djoud El Hak Belkhir</title>
+<meta name="description" content="Feature distillation from MobileVLM V2 7B to 3B on GQA, evaluated with bootstrap tests, calibration and CKA.">
+<meta property="og:title" content="Feature distillation of MobileVLM, Djoud El Hak Belkhir">
+<meta property="og:description" content="Feature distillation from MobileVLM V2 7B to 3B on GQA, evaluated with bootstrap tests, calibration and CKA.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://djihad-elhak.github.io/projects/kd-vlm.html">
+<meta property="og:image" content="https://djihad-elhak.github.io/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="preload" href="../fonts/newsreader-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../fonts/ibm-plex-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="masthead">
+  <div class="wrap masthead-row">
+    <a class="masthead-name" href="../#top">Djoud El Hak Belkhir</a>
+    <nav aria-label="Sections">
+      <ul>
+        <li><a href="../#work">Work</a></li>
+        <li><a href="../#experience">Experience</a></li>
+        <li><a href="../#education">Education</a></li>
+        <li><a href="../#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <p class="masthead-meta">Case study 1.4</p>
+  </div>
+</header>
+
+<main id="main">
+<header class="page-head wrap">
+  <p class="crumbs"><a href="../#work">Selected work</a><span aria-hidden="true">/</span><span>1.4</span></p>
+  <div class="title-row"><h1>Feature distillation of a mobile vision-language model</h1></div>
+  <p class="standfirst">Distilling MobileVLM V2 7B into its 3B sibling: the student keeps 96.8% of the teacher's accuracy with 2.3 times fewer parameters, and its visual representations move from 0.48 to 0.92 CKA with the teacher.</p>
+  <dl class="factsheet">
+  <div><dt>Context</dt><dd>Team project, 4 people</dd></div>
+  <div><dt>Period</dt><dd>2026</dd></div>
+  <div><dt>My part</dt><dd>Feature distillation, training and analysis</dd></div>
+  <div><dt>Stack</dt><dd>PyTorch, Hugging Face, LoRA, GQA, Kaggle 2× T4</dd></div>
+</dl>
+</header>
+
+<div class="wrap">
+
+</div>
+
+<section class="chapter wrap" aria-labelledby="c01">
+  <div class="section-head">
+    <p class="label">01</p>
+    <h2 id="c01">Method</h2>
+  </div>
+  <div class="chapter-body">
+
+<p>In a team project on knowledge distillation for mobile vision-language models, we compressed MobileVLM V2 7B into its 3B sibling. My part was <b>feature distillation</b>: the student learns to answer GQA questions and to reproduce the teacher's hidden states, both at the answer position and on the visual tokens.</p>
+<figure class="diagram">
+  <div class="scroll">
+    <svg viewBox="0 0 1140 318" role="img" aria-labelledby="dg9-t">
+      <title id="dg9-t">Feature distillation set-up: frozen teacher, LoRA student, adapter and losses</title>
+      <defs><marker id="dg9-a" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="dg-arrow" d="M0,0 L8,4 L0,8 z"/></marker><marker id="dg9-am" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="dg-arrow mark" d="M0,0 L8,4 L0,8 z"/></marker></defs>
+      <rect class="dg-box" x="10" y="120" width="150" height="80" rx="2"/>
+<text class="dg-t" x="20" y="140">GQA image</text>
+<text class="dg-s" x="20" y="157">+ question</text>
+<text class="dg-s" x="20" y="171">20,000 train images</text>
+<rect class="dg-box dark" x="215" y="30" width="260" height="92" rx="2"/>
+<text class="dg-t on-dark" x="225" y="50">Teacher · MobileVLM V2 7B</text>
+<text class="dg-s on-dark-s" x="225" y="67">frozen, fp16</text>
+<text class="dg-s on-dark-s" x="225" y="81">hidden states cached once</text>
+<rect class="dg-box mark" x="215" y="200" width="260" height="92" rx="2"/>
+<text class="dg-t" x="225" y="220">Student · MobileVLM V2 3B</text>
+<text class="dg-s" x="225" y="237">+ LoRA, r = 16</text>
+<text class="dg-s" x="225" y="251">on q, k, v, o</text>
+<rect class="dg-box" x="525" y="30" width="260" height="92" rx="2"/>
+<text class="dg-t" x="535" y="50">Teacher states</text>
+<text class="dg-s" x="535" y="67">layers 16 and 32</text>
+<text class="dg-s" x="535" y="81">answer position + visual tokens</text>
+<text class="dg-s" x="535" y="95">(144 tokens → 4×4 grid)</text>
+<rect class="dg-box" x="525" y="200" width="260" height="92" rx="2"/>
+<text class="dg-t" x="535" y="220">Adapter 2560 → 4096</text>
+<text class="dg-s" x="535" y="237">maps student states</text>
+<text class="dg-s" x="535" y="251">into teacher space</text>
+<text class="dg-s" x="535" y="265">used in training only</text>
+<rect class="dg-box mark" x="840" y="116" width="120" height="70" rx="2"/>
+<text class="dg-t" x="850" y="136">MSE</text>
+<text class="dg-s" x="850" y="153">feature loss</text>
+<rect class="dg-box" x="840" y="232" width="120" height="60" rx="2"/>
+<text class="dg-t" x="850" y="252">Cross-entropy</text>
+<text class="dg-s" x="850" y="269">answer</text>
+<rect class="dg-box dark" x="1010" y="160" width="120" height="80" rx="2"/>
+<text class="dg-t on-dark" x="1020" y="180">Loss</text>
+<text class="dg-s on-dark-s" x="1020" y="197">CE + feature</text>
+<text class="dg-s on-dark-s" x="1020" y="211">MSE</text>
+<polyline class="dg-e" points="161,150 190,150 190,76 214,76" marker-end="url(#dg9-a)"/>
+<polyline class="dg-e" points="161,170 190,170 190,246 214,246" marker-end="url(#dg9-a)"/>
+<polyline class="dg-e" points="476,76 524,76" marker-end="url(#dg9-a)"/>
+<polyline class="dg-e" points="476,246 524,246" marker-end="url(#dg9-a)"/>
+<polyline class="dg-e" points="786,76 812,76 812,140 839,140" marker-end="url(#dg9-a)"/>
+<polyline class="dg-e" points="786,246 812,246 812,165 839,165" marker-end="url(#dg9-a)"/>
+<polyline class="dg-e" points="345,293 345,308 900,308 900,293" marker-end="url(#dg9-a)"/>
+<text class="dg-l" x="620" y="302" text-anchor="middle">student answer</text>
+<polyline class="dg-e" points="961,151 985,151 985,185 1009,185" marker-end="url(#dg9-a)"/>
+<polyline class="dg-e" points="961,262 985,262 985,215 1009,215" marker-end="url(#dg9-a)"/>
+    </svg>
+  </div>
+  <figcaption><span class="fig">Fig. 1</span> Run D_qv: both signals, one epoch, 90,561 questions, 5,661 steps on Kaggle's 2× T4. The adapter is dropped after training; the result is a standalone fp16 model.</figcaption>
+</figure>
+<ul class="ticks">
+  <li>GQA sample built image-disjoint with seed 42: 20,000 training images, 1,000 for development, 398 for testdev.</li>
+  <li>Teacher states are computed once and cached, so the 7B model never sits in memory during student training.</li>
+  <li>Training ran past Kaggle's 12-hour limit, so it is checkpointed and resumed in a second notebook that also evaluates and exports the merged model.</li>
+</ul>
+
+  </div>
+</section>
+<section class="chapter wrap" aria-labelledby="c02">
+  <div class="section-head">
+    <p class="label">02</p>
+    <h2 id="c02">Results</h2>
+  </div>
+  <div class="chapter-body">
+
+<div class="table-scroll"><table class="results wide">
+<caption>GQA dev, 13,174 questions</caption>
+<thead><tr><th scope="col">Model</th><th scope="col">Accuracy</th></tr></thead>
+<tbody>
+<tr><th scope="row">Teacher, 7B</th><td>71.67%</td></tr>
+<tr><th scope="row">Student 3B, zero-shot</th><td>69.33%</td></tr>
+<tr class="hl"><th scope="row">Student 3B, feature distillation</th><td>69.41%</td></tr>
+</tbody></table></div>
+<p>The student keeps 96.8% of the teacher's accuracy with 2.3 times fewer parameters, 2.5 times fewer FLOPs and about 1.9 times lower latency.</p>
+<div class="bars" role="group" aria-label="CKA similarity with the teacher, before → after distillation">
+<p class="bars-title">CKA similarity with the teacher, before → after distillation</p>
+<div class="row"><span>Visual tokens, before</span><span class="track" aria-hidden="true"><span class="fill" style="width:48.0%"></span></span><span class="val">0.48</span></div>
+<div class="row hl"><span>Visual tokens, after</span><span class="track" aria-hidden="true"><span class="fill" style="width:92.0%"></span></span><span class="val">0.92</span></div>
+<div class="row"><span>Answer position, before</span><span class="track" aria-hidden="true"><span class="fill" style="width:74.0%"></span></span><span class="val">0.74</span></div>
+<div class="row hl"><span>Answer position, after</span><span class="track" aria-hidden="true"><span class="fill" style="width:82.0%"></span></span><span class="val">0.82</span></div>
+</div>
+<p class="pull">Feature distillation clearly aligned the representations. It did not significantly change accuracy, and I report that as it is.</p>
+<ul class="ticks">
+  <li>Accuracy change against the zero-shot student: +0.08 points, 95% CI [−0.50, +0.72] by paired bootstrap.</li>
+  <li>Calibration got slightly worse: expected calibration error 0.034 → 0.042.</li>
+  <li>The cross-entropy-only control has not been run yet, so the effect of the teacher signal itself is not isolated.</li>
+  <li>The analysis also covers accuracy by question type, answer type and frequency, teacher–student agreement, accuracy-coverage, efficiency and qualitative disagreements.</li>
+</ul>
+<p class="links-row"><a href="https://github.com/djihad-elhak/Feature-Knowledge-Distilliation">Code</a><a href="https://www.kaggle.com/datasets/djihadelhakbelkhir/kd-vlm-continue">Results and model on Kaggle</a></p>
+
+  </div>
+</section>
+
+<nav class="pager wrap" aria-label="Other projects"><a class="prev" href="trashgo.html"><span>← Previous</span><b>ViT-RealWaste and TrashGo</b></a><a class="next" href="dz-tabib.html"><span>Next →</span><b>DZ-Tabib</b></a></nav>
+</main>
+
+<footer class="contact" id="contact">
+  <div class="wrap">
+    <p class="label">Contact</p>
+    <p class="contact-line">For an internship from February 2027, write to <a href="mailto:djoudelhak@gmail.com">djoudelhak@gmail.com</a>. I answer in French or English.</p>
+    <ul class="contact-links">
+      <li><a href="https://www.linkedin.com/in/djoud-el-hak-belkhir-055977223/" rel="noopener">LinkedIn</a></li>
+      <li><a href="https://github.com/djihad-elhak" rel="noopener">GitHub</a></li>
+      <li><a href="https://www.kaggle.com/djihadelhakbelkhir" rel="noopener">Kaggle</a></li>
+    </ul>
+    <p class="colophon">Set in Newsreader and IBM Plex. No cookies, no tracking.</p>
+  </div>
+</footer>
+
+</body>
+</html>
