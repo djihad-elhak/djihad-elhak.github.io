@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Djoud El Hak Belkhir, AI and data science</title>
+<meta name="description" content="Master 2 student in Data, Knowledge and Hybrid AI at Université Paris-Saclay. Computer vision, model compression and on-premise LLM systems. Looking for a 6-month end-of-studies internship from February 2027.">
+<meta property="og:title" content="Djoud El Hak Belkhir, AI and data science">
+<meta property="og:description" content="Computer vision, model compression and on-premise LLM systems. Available for a 6-month internship from February 2027.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://djihad-elhak.github.io/">
+<meta property="og:image" content="https://djihad-elhak.github.io/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preload" href="fonts/chakra-petch-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="hero">
+  <canvas id="field" aria-hidden="true"></canvas>
+  <nav class="top" aria-label="Sections">
+    <a class="mark" href="#top" aria-label="Djoud El Hak Belkhir, back to top">DB</a>
+    <ul>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+  <div class="hero-text" id="top">
+    <h1>Djoud El&nbsp;Hak Belkhir</h1>
+    <p class="role">AI engineering student. I build computer vision, model compression and on-premise LLM systems, and I measure whether they work.</p>
+    <p class="target"><span class="box">Looking for a 6-month end-of-studies internship (PFE) in AI or data science, from February&nbsp;2027.</span></p>
+    <ul class="links">
+      <li><a class="button" href="mailto:djoudelhak@gmail.com">Email me</a></li>
+      <li><a href="https://www.linkedin.com/in/djoud-el-hak-belkhir-055977223/" rel="noopener">LinkedIn</a></li>
+      <li><a href="https://github.com/djihad-elhak" rel="noopener">GitHub</a></li>
+      <li><a href="https://www.kaggle.com/djihadelhakbelkhir" rel="noopener">Kaggle</a></li>
+    </ul>
+  </div>
+  <p class="caption">Background: a simulated detection-and-tracking overlay, the kind of view my medical imaging pipeline draws on microscope video.</p>
+</header>
+
+<main id="main">
+
+<section class="about" aria-labelledby="about-title">
+  <h2 id="about-title">About</h2>
+  <div class="about-grid">
+    <p class="lead">I am in the Master 2 Data, Knowledge and Hybrid AI at Université Paris-Saclay, after an engineering degree in AI and data science at ESTIN, where I ranked 6th of my class. My research internship at CERIST took a detection and tracking pipeline from noisy clinical video to an offline desktop tool validated against a reference system. I like projects where the model is only half of the work: the data, the evaluation and the deployment matter as much.</p>
+    <dl class="facts">
+      <dt>Based in</dt><dd>Paris area, Île-de-France</dd>
+      <dt>Available</dt><dd>6 months from February 2027</dd>
+      <dt>Interested in</dt><dd>Computer vision, applied ML research, LLM systems, data engineering; open to a CIFRE PhD afterwards</dd>
+      <dt>Languages</dt><dd>Arabic (native), French (C1), English (fluent)</dd>
+    </dl>
+  </div>
+</section>
+
+<section class="work" id="work" aria-labelledby="work-title">
+  <h2 id="work-title">Selected work</h2>
+
+  <article class="project feature">
+    <div class="project-head">
+      <h3>On-premise GenAI platform for flight software</h3>
+      <p class="when">2026, personal research project</p>
+    </div>
+    <p>A platform an embedded software team can run on its own GPUs, built and measured on NASA's F´ flight framework: a knowledge graph of the code and its 560 requirements served over MCP, a LangGraph agent that writes requirement-tagged unit tests and proves them with the real build, the tests and mutation testing, a GPU sizing model calibrated on measured runs, and a web console engineers can use on site. Written up as a 6-page IEEE-style paper.</p>
+    <ul class="results">
+      <li><span class="box"><b>21 of 28</b> traceability gaps closed with verified tests</span></li>
+      <li><span class="box"><b>0.609</b> MAP for requirement-to-test retrieval</span></li>
+      <li><span class="box"><b>±11%</b> sizing error on decode throughput</span></li>
+    </ul>
+    <p class="stack">Python, LangGraph, MCP, llama.cpp, vLLM, hybrid retrieval, Docker, GitHub Actions, Kaggle 2× T4</p>
+    <p class="project-links">
+      <a href="https://djihad-elhak.github.io/onprem-genai-embedded/">Live demo</a>
+      <a href="https://github.com/djihad-elhak/onprem-genai-embedded">Code</a>
+      <a href="https://github.com/djihad-elhak/onprem-genai-embedded/blob/main/paper/main.pdf">Paper</a>
+    </p>
+  </article>
+
+  <div class="project-row">
+    <article class="project">
+      <div class="project-head">
+        <h3>Feature distillation of a mobile vision-language model</h3>
+        <p class="when">2026, team of 4, my part: feature distillation</p>
+      </div>
+      <p>Compressing MobileVLM V2 7B into its 3B sibling for phones. The student, adapted with LoRA, learns to answer GQA questions and to reproduce the teacher's hidden states on the answer and on the visual tokens. Evaluated with bootstrap tests, calibration and CKA, including where it did not help.</p>
+      <ul class="results">
+        <li><span class="box"><b>96.8%</b> of the teacher's accuracy with 2.3× fewer parameters</span></li>
+        <li><span class="box"><b>0.92</b> CKA alignment with the teacher on visual tokens, up from 0.48</span></li>
+      </ul>
+      <p class="stack">PyTorch, Hugging Face, LoRA, GQA, Kaggle 2× T4</p>
+      <p class="project-links">
+        <a href="https://github.com/djihad-elhak/Feature-Knowledge-Distilliation">Code</a>
+        <a href="https://www.kaggle.com/datasets/djihadelhakbelkhir/kd-vlm-continue">Results on Kaggle</a>
+      </p>
+    </article>
+
+    <article class="project">
+      <div class="project-head">
+        <h3>ViT-RealWaste and TrashGo</h3>
+        <p class="when">2026, personal project</p>
+      </div>
+      <p>A leakage-aware comparison of a Vision Transformer against three CNNs for landfill waste classification, then the product side: an ONNX export running entirely on the phone in a Flutter app that turns a correct classification into rewards.</p>
+      <ul class="results">
+        <li><span class="box"><b>93.86%</b> macro-F1 for ViT-B/16 on 481 held-out images</span></li>
+      </ul>
+      <p class="stack">PyTorch, ViT, DenseNet, MobileNetV2, VGG-16, Inception V3, ONNX Runtime, Flutter</p>
+      <p class="project-links">
+        <a href="https://github.com/djihad-elhak/waste-net">Code</a>
+      </p>
+    </article>
+  </div>
+
+  <h3 class="more-title">Also built</h3>
+  <ul class="more">
+    <li>
+      <h4>Commercia</h4>
+      <p>Founder of a 3-person startup project: one e-commerce platform for Algerian sellers with storefront, local delivery, CRM and ERP. Prototype incubated at ESTIN Up and presented at the Global Entrepreneurship Week exhibition.</p>
+    </li>
+    <li>
+      <h4><a href="https://github.com/djihad-elhak/tabibi_dz">Tabibi DZ</a></h4>
+      <p>Backend of a doctor appointment platform for Algeria: search, booking, teleconsultation rooms and national ID parsing. Django REST, MySQL, Docker, CI, deployed on Render.</p>
+    </li>
+    <li>
+      <h4><a href="https://github.com/djihad-elhak/AutoCare">AutoCare</a></h4>
+      <p>Booking and repair-tracking API for a car workshop, with staff workflows and an admin back office. Django REST, MySQL.</p>
+    </li>
+    <li>
+      <h4><a href="https://github.com/djihad-elhak/crous">CROUS housing monitor</a></h4>
+      <p>Watches a student housing search with headless Chrome and sends a Telegram alert with a screenshot when a new listing appears. Runs on GitHub Actions.</p>
+    </li>
+    <li>
+      <h4>Data warehouse</h4>
+      <p>Academic project: a data warehouse and its ETL chain on real data, then OLAP analysis. Talend, SQL.</p>
+    </li>
+  </ul>
+</section>
+
+<section class="experience" id="experience" aria-labelledby="exp-title">
+  <h2 id="exp-title">Experience</h2>
+  <ol class="timeline">
+    <li>
+      <p class="date">Sept. 2025 to Mar. 2026, 7 months</p>
+      <h3>Research intern, computer vision for medical imaging</h3>
+      <p class="org">CERIST, Data Science Unit, Algeria</p>
+      <ul>
+        <li>Built a pipeline for automated sperm motility analysis: YOLO detection, DeepSORT tracking, kinematic metrics and motility grades inspired by the WHO manual.</li>
+        <li>Designed an adaptive scale estimator so the measurements survive clinical variability: resolution, frame rate, blur and occlusions.</li>
+        <li>Packaged the engine in an Electron.js desktop application that runs offline on a standard PC.</li>
+        <li>Validated it against the SCA reference system on 15 samples from 5 patients at 3 motility levels, with results close to the reference.</li>
+      </ul>
+    </li>
+    <li>
+      <p class="date">Sept. to Oct. 2025</p>
+      <h3>Intern, networks and infrastructure</h3>
+      <p class="org">Algérie Télécom, Batna</p>
+      <ul>
+        <li>Studied the system that tracks maintenance and internet access for residential subscribers.</li>
+        <li>Took part in fiber-optic operation and maintenance; delivered an internship report.</li>
+      </ul>
+    </li>
+    <li>
+      <p class="date">June 2025</p>
+      <h3>Intern, data and supervision</h3>
+      <p class="org">Sonelgaz, Batna</p>
+      <ul>
+        <li>Studied large-scale data management and the remote supervision and maintenance systems of the grid; wrote a report on them.</li>
+      </ul>
+    </li>
+  </ol>
+</section>
+
+<section class="education" id="education" aria-labelledby="edu-title">
+  <h2 id="edu-title">Education</h2>
+  <div class="edu">
+    <div>
+      <p class="date">2026 to 2027</p>
+      <h3>Master 2, Data, Knowledge and Hybrid AI (DKAI)</h3>
+      <p class="org">Université Paris-Saclay</p>
+      <p>Includes evaluating and preparing data for AI, and data warehouses and big data. Ends with the 6-month internship from February 2027.</p>
+    </div>
+    <div>
+      <p class="date">2022 to 2026</p>
+      <h3>State engineering degree in computer science, AI and data science double track</h3>
+      <p class="org">ESTIN, Béjaïa</p>
+      <p>Ranked 6th of the class.</p>
+    </div>
+  </div>
+</section>
+
+<section class="skills" id="skills" aria-labelledby="skills-title">
+  <h2 id="skills-title">Skills</h2>
+  <div class="skill-grid">
+    <div><h3>Machine learning and vision</h3><p>PyTorch, Hugging Face, TensorFlow, scikit-learn, OpenCV, YOLO, DeepSORT, Vision Transformers and CNNs, LoRA, knowledge distillation, ONNX</p></div>
+    <div><h3>LLM systems</h3><p>llama.cpp, vLLM, LangGraph, Model Context Protocol, hybrid retrieval (BM25 and dense), knowledge graphs, GPU capacity planning</p></div>
+    <div><h3>Data</h3><p>SQL, pandas, NumPy, ETL with Talend, data warehousing and OLAP, statistical testing (bootstrap intervals, McNemar), Matplotlib, Plotly</p></div>
+    <div><h3>Engineering</h3><p>Python, Java, JavaScript, Dart; Django REST, FastAPI, Docker, GitHub Actions, MySQL, PostgreSQL, Flutter, Electron.js</p></div>
+  </div>
+</section>
+
+<section class="involvement" aria-labelledby="inv-title">
+  <h2 id="inv-title">Leadership and distinctions</h2>
+  <ul class="plain">
+    <li><b>Head of the technical department, School of AI club, Béjaïa</b>, since Sept. 2024: machine learning and deep learning workshops, the DataLand datathon platform, coaching teams for the TrainNet hackathon.</li>
+    <li><b>Exhibition of Innovative Projects certificate</b>, Global Entrepreneurship Week at ESTIN, for Commercia.</li>
+    <li><b>Machine Learning Specialization</b>, Coursera.</li>
+  </ul>
+</section>
+
+</main>
+
+<footer class="contact" id="contact">
+  <h2>Contact</h2>
+  <p>The quickest way to reach me is email. I answer in French or English.</p>
+  <ul class="links">
+    <li><a class="button" href="mailto:djoudelhak@gmail.com">djoudelhak@gmail.com</a></li>
+    <li><a href="https://www.linkedin.com/in/djoud-el-hak-belkhir-055977223/" rel="noopener">LinkedIn</a></li>
+    <li><a href="https://github.com/djihad-elhak" rel="noopener">GitHub</a></li>
+    <li><a href="https://www.kaggle.com/djihadelhakbelkhir" rel="noopener">Kaggle</a></li>
+  </ul>
+</footer>
+
+<script src="track.js" defer></script>
+</body>
+</html>
