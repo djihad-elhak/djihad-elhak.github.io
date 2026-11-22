@@ -42,7 +42,7 @@
     <p class="kicker">AI and data engineer · M2 Data, Knowledge and Hybrid AI, Université Paris-Saclay</p>
     <h1 id="name">Djoud El&nbsp;Hak Belkhir</h1>
     <p class="standfirst">I build AI systems from data to production: LLM applications with retrieval (RAG) and agents, machine learning and computer vision models, and the data pipelines, evaluation and deployment around them, on GPUs, ordinary CPUs or phones.</p>
-    <p class="intro-more">Seven months of applied research at CERIST, a single-author preprint, and six documented projects, most with public code. I measure what each design choice is worth before I keep it.</p>
+    <p class="intro-more">Seven months of applied research at CERIST, a single-author research paper, and six documented projects, most with public code. I measure what each design choice is worth before I keep it.</p>
     <ul class="spec-links">
       <li><a href="mailto:djoudelhak@gmail.com">djoudelhak@gmail.com</a></li>
       <li><a href="https://www.linkedin.com/in/djoud-el-hak-belkhir-055977223/" rel="noopener">LinkedIn</a></li>
@@ -82,7 +82,7 @@
       <p class="when">Sept. 2025 – Mar. 2026<span>7 months</span></p>
       <div>
         <div class="entry-head"><span class="logo"><img src="img/logos/cerist.webp" width="160" height="160" alt="CERIST"></span><div><h3>Research intern, computer vision and AI for medical imaging</h3><p class="org">CERIST, Data Science Unit, Algeria</p></div></div>
-        <p class="lead-in">Automated sperm motility analysis for a reproductive biology laboratory: find every spermatozoon in microscope video (heads about 10 pixels wide, up to 218 per frame at 25 fps), follow it, measure its velocity and grade it as the WHO manual does, on an ordinary PC with no GPU. Full write-up: <a href="projects/spermnet.html">SpermNet case study</a>.</p>
+        <p class="lead-in">Automated sperm motility analysis for a reproductive biology laboratory: find every spermatozoon in microscope video (heads about 10 pixels wide, more than a thousand per frame in dense samples, at 25 fps), follow it, measure its velocity and grade it as the WHO manual does, on an ordinary PC with no GPU. Full write-up: <a href="projects/spermnet.html">SpermNet case study</a>.</p>
         <h4>Audit of the first version</h4>
         <ul>
           <li>Built the baseline (YOLO11m detection, DeepSORT tracking with a MobileNetV2 re-ID network) and measured where it failed: 195 s of CPU per one-second clip, merged touching heads, tracks broken after 15.4 of 25 frames on average.</li>
@@ -90,24 +90,24 @@
         </ul>
         <h4>Data and evaluation</h4>
         <ul>
-          <li>Curated 15 one-second recordings (5 men × 3 motility strata) by reviewing raw acquisitions frame by frame in OpenCV and re-encoding them losslessly; 2,410 labelled objects for detection and tracking.</li>
+          <li>Curated one-second recordings by reviewing raw acquisitions frame by frame in OpenCV and re-encoding them losslessly; 2,410 labelled objects for detection and tracking, and an evaluation set of 45 recordings from 15 samples.</li>
           <li>Set up five-fold cross-validation grouped by video, tracking metrics (MOTA, IDF1, HOTA) and an analysis of how each detector error biases the motile fraction a clinician reads.</li>
         </ul>
         <h4>Model and tracking</h4>
         <ul>
           <li>Designed and trained SpermNet, a 375,621-parameter U-shaped detector with a stride-2 centre-point output and a three-channel spatio-temporal input: F1 0.769 against 0.690 for a tuned YOLO11m, with 53 times fewer parameters.</li>
-          <li>Replaced DeepSORT with a motion-gated tracker and showed association was not the bottleneck: IDF1 0.724 against 0.621 with the same tracker, and 10.4 s per clip on two CPU cores instead of 195 s.</li>
+          <li>Replaced DeepSORT with a motion-gated tracker and showed association was not the bottleneck: IDF1 0.724 against 0.621 with the same tracker. The complete analysis now takes 4.6 s per clip on two CPU cores, against 195 s for the baseline.</li>
         </ul>
         <h4>Measurement</h4>
         <ul>
-          <li>Ran a stage-micrometer test that showed the scale estimated from head length was off by 38.7%; replaced it with optical-train calibration and a scale-free grading criterion that reproduces the three-class report within 1.5 points.</li>
-          <li>Computed kinematics (VCL, VSL, VAP, LIN, STR, WOB) from sub-pixel centroids and graded each track a to d, with the rapid boundary following stage temperature.</li>
+          <li>Took the velocity scale from the laboratory calibration instead of the specimen, with a head-length estimate only as a fallback that withholds grades a and b.</li>
+          <li>Computed kinematics (VCL, VSL, VAP, LIN, STR, WOB, ALH, BCF) from sub-pixel centroids with explicit conventions (three-point average path, 0.3 px jitter dead band, 10-point minimum track), measured what each is worth, and graded each track a to d on VCL.</li>
         </ul>
         <h4>Product and deployment</h4>
         <ul>
           <li>Exported the detector to ONNX with verified numerical parity and cut the installer from 1.7 GB to 450 MB by removing PyTorch.</li>
           <li>Built the Andrology Console: Electron and React/TypeScript over a FastAPI engine, with patients, collection diary, worklist, overlay review against the video, calibration, laboratory parameters, PDF/CSV/Excel reports in English and French, roles, a hash-chained audit trail and three rounds of security review.</li>
-          <li>Compared the results with the SCA reference system on 15 samples from 5 patients at 3 motility levels, and wrote the work up as a single-author preprint.</li>
+          <li>Ran the pipeline on 45 clinical recordings from 15 samples (field-to-field intraclass correlation 0.96 for motility and PR) and wrote it up as a single-author <a href="papers/spermnet.pdf">research paper</a>.</li>
         </ul>
         <p class="keys entry-stack"><span>PyTorch</span><span>OpenCV</span><span>ONNX Runtime</span><span>NumPy</span><span>FastAPI</span><span>Electron</span><span>React</span><span>TypeScript</span></p>
         <figure class="plate video-plate">
@@ -300,11 +300,11 @@
     <div class="summary-body">
       <div class="summary-text">
         <h3 id="p-spermnet-t"><a href="projects/spermnet.html">SpermNet and the Andrology Console</a></h3>
-        <p>Automated sperm motility analysis that runs on a laboratory PC without a GPU. I replaced a YOLO11m and DeepSORT baseline with a 0.38 M-parameter detector and a motion-only tracker, measured the calibration instead of assuming it, and shipped the engine in an offline desktop application.</p>
-        <p class="keys"><span><b>0.769</b> detection F1 vs 0.690</span> <span><b>195 s → 10.4 s</b> per clip on 2 CPU cores</span> <span><b>−1.6</b> vs −11.1 pts bias</span></p>
+        <p>Automated sperm motility analysis that runs on a laboratory PC without a GPU. I replaced a YOLO11m and DeepSORT baseline with a 0.38 M-parameter detector and a motion-only tracker, stated and measured every kinematic convention, and shipped the engine in an offline desktop application.</p>
+        <p class="keys"><span><b>0.769</b> detection F1 vs 0.690</span> <span><b>195 s → 4.6 s</b> per clip on 2 CPU cores</span> <span><b>−1.6</b> vs −11.1 pts bias</span></p>
         <p><a class="more-link" href="projects/spermnet.html">Read the case study</a></p>
       </div>
-      <figure class="plate"><a href="projects/spermnet.html"><img src="img/andrology-result.webp" width="1600" height="869" loading="lazy" alt="Andrology Console result screen."></a></figure>
+      <figure class="plate"><a href="projects/spermnet.html"><img src="img/andrology-result.webp" width="1600" height="1000" loading="lazy" alt="Andrology Console result screen."></a></figure>
     </div>
   </article>
 
