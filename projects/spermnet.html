@@ -5,39 +5,29 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>SpermNet, Djoud El Hak Belkhir</title>
 <meta name="description" content="A CPU-only detector and tracker for sperm motility analysis, shipped as an offline desktop application. Research internship at CERIST.">
+<meta name="author" content="Djoud El Hak Belkhir">
+<link rel="canonical" href="https://djihad-elhak.github.io/projects/spermnet.html">
 <meta property="og:title" content="SpermNet, Djoud El Hak Belkhir">
 <meta property="og:description" content="A CPU-only detector and tracker for sperm motility analysis, shipped as an offline desktop application. Research internship at CERIST.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://djihad-elhak.github.io/projects/spermnet.html">
 <meta property="og:image" content="https://djihad-elhak.github.io/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#fdfdfc" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#111110" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
-<link rel="preload" href="../fonts/newsreader-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="../fonts/ibm-plex-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
+<script>try{var t=localStorage.getItem("theme");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
 <link rel="stylesheet" href="../style.css">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-
-<header class="masthead">
-  <div class="wrap masthead-row">
-    <a class="masthead-name" href="../#top">Djoud El Hak Belkhir</a>
-    <nav aria-label="Sections">
-      <ul>
-        <li><a href="../#experience">Experience</a></li>
-        <li><a href="../#work">Projects</a></li>
-        <li><a href="../#education">Education</a></li>
-        <li><a href="../#skills">Skills</a></li>
-        <li><a href="../#contact">Contact</a></li>
-      </ul>
-    </nav>
-    <p class="masthead-meta">Case study 2.1</p>
-  </div>
-</header>
-
 <main id="main">
 <header class="page-head wrap">
-  <p class="crumbs"><a href="../#work">Selected work</a><span aria-hidden="true">/</span><span>2.1</span></p>
+  <a class="back" href="../"><span aria-hidden="true">←</span> Djoud El Hak Belkhir</a>
   <div class="title-row"><h1>SpermNet and the Andrology Console</h1></div>
   <p class="standfirst">Six months at CERIST building automated sperm motility analysis that runs on a laboratory PC without a GPU: a 0.38 M-parameter detector, a tracker with no appearance model, kinematic conventions that are stated and measured, and the desktop application around them.</p>
   <dl class="factsheet">
@@ -49,7 +39,7 @@
 </header>
 
 <div class="wrap">
-<figure class="plate video-plate">
+<figure class="plate video-plate hero-figure">
   <video id="v-andro" controls preload="metadata" playsinline poster="../media/andrology-console-poster.webp" width="1440" height="790">
     <source src="../media/andrology-console.mp4" type="video/mp4">
     Your browser cannot play this video. <a href="../media/andrology-console.mp4">Download it (MP4)</a>.
@@ -78,7 +68,6 @@
 
 <section class="chapter wrap" aria-labelledby="c01">
   <div class="section-head">
-    <p class="label">01</p>
     <h2 id="c01">The problem</h2>
   </div>
   <div class="chapter-body">
@@ -96,15 +85,14 @@
 </section>
 <section class="chapter wrap" aria-labelledby="c02">
   <div class="section-head">
-    <p class="label">02</p>
     <h2 id="c02">From a heavy baseline to a measured system</h2>
   </div>
   <div class="chapter-body">
 
 <p>I started from a conventional pipeline, YOLO11m with DeepSORT on colour-inverted frames, and audited it against annotation and measurement instead of tuning it. Each later version replaced one assumption of the previous one with something measured.</p>
-<figure class="diagram">
+<figure class="diagram" style="--w: 1140px">
   <div class="scroll" tabindex="0" role="region" aria-label="Pipeline from microscope to report, in seven stages, scrolls sideways on small screens">
-    <svg viewBox="0 0 1140 232" role="img" aria-labelledby="dg1-t">
+    <svg width="1140" height="232" viewBox="0 0 1140 232" role="img" aria-labelledby="dg1-t">
       <title id="dg1-t">Pipeline from microscope to report, in seven stages</title>
       <defs><marker id="dg1-a" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="dg-arrow" d="M0,0 L8,4 L0,8 z"/></marker><marker id="dg1-am" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="dg-arrow mark" d="M0,0 L8,4 L0,8 z"/></marker></defs>
       <rect class="dg-group" x="4" y="28" width="314" height="152" rx="3"/><text class="dg-g" x="12" y="22">data preparation, offline</text>
@@ -115,7 +103,7 @@
 <text class="dg-t" x="22" y="82">Acquisition</text>
 <text class="dg-s" x="22" y="99">phase contrast, 10×</text>
 <text class="dg-s" x="22" y="113">camera 780×580</text>
-<text class="dg-s" x="22" y="127">25 fps</text>
+<text class="dg-s" x="22" y="127">25&nbsp;fps</text>
 <rect class="dg-box" x="174" y="48" width="140" height="112" rx="2"/>
 <text class="dg-k" x="184" y="64">1</text>
 <text class="dg-t" x="184" y="82">Curation</text>
@@ -167,7 +155,7 @@
 <text class="dg-l" x="1054" y="206" text-anchor="middle">PDF · CSV · XLSX</text>
     </svg>
   </div>
-  <figcaption><span class="fig">Fig. 2</span> The system. Clips are curated with OpenCV, detected by SpermNet, linked by a motion-gated tracker, turned into kinematics and a grade, and reviewed in the console. The velocity scale comes from a calibration (section 05).</figcaption>
+  <figcaption><span class="fig">Fig. 2</span> The system. Clips are curated with OpenCV, detected by SpermNet, linked by a motion-gated tracker, turned into kinematics and a grade, and reviewed in the console. The velocity scale comes from a calibration (see <a href="#c05">scale, kinematics and grading</a>).</figcaption>
 </figure>
 <div class="table-scroll" tabindex="0"><table class="versions">
 <caption class="bars-title" style="text-align:left;padding-bottom:0.5rem">Four versions</caption>
@@ -176,14 +164,14 @@
 <tr><th scope="row">Detector</th><td>YOLO11m, 20.1 M parameters, input 640</td><td>SpermNet, 0.38 M, stride 2, three input channels</td><td>Unchanged, exported to ONNX</td><td>Unchanged</td></tr>
 <tr><th scope="row">Association</th><td>DeepSORT with a 2.2 M MobileNetV2 re-ID network</td><td>Motion-gated online tracker, no appearance model</td><td>Unchanged</td><td>10-point minimum, gaps interpolated</td></tr>
 <tr><th scope="row">Frames</th><td>Colour-inverted, head-shape gate</td><td>Native polarity, no gate, no detection cap</td><td>Unchanged</td><td>Unchanged</td></tr>
-<tr><th scope="row">Velocity scale</th><td>From an assumed head length (4.7 µm)</td><td>From head length, until the micrometer test</td><td>Optical train, or scale-free criterion</td><td>Laboratory calibration; head-length estimate as a fallback, a/b withheld</td></tr>
-<tr><th scope="row">CPU per clip</th><td>195 s</td><td>10.4 s</td><td>10.4 s</td><td>4.6 s, complete analysis</td></tr>
+<tr><th scope="row">Velocity scale</th><td>From an assumed head length (4.7&nbsp;µm)</td><td>From head length, until the micrometer test</td><td>Optical train, or scale-free criterion</td><td>Laboratory calibration; head-length estimate as a fallback, a/b withheld</td></tr>
+<tr><th scope="row">CPU per clip</th><td>195&nbsp;s</td><td>10.4&nbsp;s</td><td>10.4&nbsp;s</td><td>4.6&nbsp;s, complete analysis</td></tr>
 <tr><th scope="row">What it exposed</th><td>Merged touching heads, untracked cells, tracks broken after 15.4 of 25 frames on average, misgrades</td><td>A scale taken from head length varies between men</td><td>Kinematic conventions unstated; the overlay drew fragments the result did not count</td><td>Averaging window moves PR by up to 7.4 points; no transfer to bright-field optics</td></tr>
 </tbody></table></div>
 <h3>What the audit of version 1 found</h3>
 <ul class="ticks">
-  <li>195 s of CPU time for a one-second clip: unusable on a laboratory PC.</li>
-  <li>A head-shape gate taken from anatomy (aspect ratio 1.4 to 2.0) contained only 29.7% of annotated heads. At 10 px, a head's aspect ratio is mostly pixel quantisation. Applied to version 1's detections, the gate cut recall from 0.593 to 0.074.</li>
+  <li>195&nbsp;s of CPU time for a one-second clip: unusable on a laboratory PC.</li>
+  <li>A head-shape gate taken from anatomy (aspect ratio 1.4 to 2.0) contained only 29.7% of annotated heads. At 10&nbsp;px, a head's aspect ratio is mostly pixel quantisation. Applied to version 1's detections, the gate cut recall from 0.593 to 0.074.</li>
   <li>The 300-detection cap was hit in 33.3% of frames, so dense samples silently lost cells.</li>
   <li>Heads are bright on a dark field (median intensity 190 against 33 for the background), so inverting the colours only made the input less natural for the detector.</li>
 </ul>
@@ -192,7 +180,6 @@
 </section>
 <section class="chapter wrap" aria-labelledby="c03">
   <div class="section-head">
-    <p class="label">03</p>
     <h2 id="c03">Data</h2>
   </div>
   <div class="chapter-body">
@@ -203,19 +190,18 @@
 <thead><tr><th scope="col">Item</th><th scope="col">Value</th></tr></thead>
 <tbody>
 <tr><th scope="row">Evaluation recordings</th><td>45 = 15 samples × 3 fields; 5 weak, 5 medium, 5 strong samples</td></tr>
-<tr><th scope="row">Frames</th><td>780×580 px, 25 fps, 25 frames (1 s), 8-bit</td></tr>
-<tr><th scope="row">Optics</th><td>Nikon E200, 10× negative phase contrast, 0.827 µm/px (laboratory calibration)</td></tr>
+<tr><th scope="row">Frames</th><td>780×580&nbsp;px, 25&nbsp;fps, 25 frames (1&nbsp;s), 8-bit</td></tr>
+<tr><th scope="row">Optics</th><td>Nikon E200, 10× negative phase contrast, 0.827&nbsp;µm/px (laboratory calibration)</td></tr>
 <tr><th scope="row">Detection labels</th><td>1,349 heads in 48 patches of 192×192</td></tr>
 <tr><th scope="row">Tracking labels</th><td>1,061 boxes, 46 identities, 25 frames</td></tr>
 <tr><th scope="row">Total labelled objects</th><td>2,410</td></tr>
 </tbody></table></div>
-<p>Detection is evaluated by five-fold cross-validation <em>grouped by video</em>, so no model is ever scored on a clip it saw in training. The complete pipeline is then run unchanged on all 45 recordings (section 06).</p>
+<p>Detection is evaluated by five-fold cross-validation <em>grouped by video</em>, so no model is ever scored on a clip it saw in training. The complete pipeline is then run unchanged on all 45 recordings (see <a href="#c06">results</a>).</p>
 
   </div>
 </section>
 <section class="chapter wrap" aria-labelledby="c04">
   <div class="section-head">
-    <p class="label">04</p>
     <h2 id="c04">SpermNet, the detector</h2>
   </div>
   <div class="chapter-body">
@@ -228,11 +214,11 @@
 <div class="row"><span>Stride 8 (YOLO11 P3)</span><span class="track" aria-hidden="true"><span class="fill" style="width:24.2%"></span></span><span class="val">1.21</span></div>
 <div class="row"><span>Stride 16 (P4)</span><span class="track" aria-hidden="true"><span class="fill" style="width:12.0%"></span></span><span class="val">0.60</span></div>
 <div class="row"><span>Stride 32 (P5)</span><span class="track" aria-hidden="true"><span class="fill" style="width:6.0%"></span></span><span class="val">0.30</span></div>
-<p class="note">A detector can only localise a target that spans about one feature cell. Only the finest level of a standard pyramid carries signal for 10 px heads.</p>
+<p class="note">A detector can only localise a target that spans about one feature cell. Only the finest level of a standard pyramid carries signal for 10&nbsp;px heads.</p>
 </div>
-<figure class="diagram">
+<figure class="diagram" style="--w: 1140px">
   <div class="scroll" tabindex="0" role="region" aria-label="SpermNet architecture: three-channel input, U-shaped encoder and decoder, three heads at stride 2, scrolls sideways on small screens">
-    <svg viewBox="0 0 1140 300" role="img" aria-labelledby="dg2-t">
+    <svg width="1140" height="300" viewBox="0 0 1140 300" role="img" aria-labelledby="dg2-t">
       <title id="dg2-t">SpermNet architecture: three-channel input, U-shaped encoder and decoder, three heads at stride 2</title>
       <defs><marker id="dg2-a" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="dg-arrow" d="M0,0 L8,4 L0,8 z"/></marker><marker id="dg2-am" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="dg-arrow mark" d="M0,0 L8,4 L0,8 z"/></marker></defs>
       <rect class="dg-box" x="10" y="90" width="130" height="120" rx="2"/>
@@ -290,13 +276,13 @@
 <polyline class="dg-e" points="861,72 890,72 890,150 919,150" marker-end="url(#dg2-a)"/>
 <polyline class="dg-e" points="861,152 890,152 890,150 919,150" marker-end="url(#dg2-a)"/>
 <polyline class="dg-e" points="861,232 890,232 890,150 919,150" marker-end="url(#dg2-a)"/>
-<text class="dg-s" x="10" y="292" text-anchor="start">375,621 parameters · 1.5 MB · 5 output channels at stride 2 · block height shows resolution, depth illustrative</text>
+<text class="dg-s" x="10" y="292" text-anchor="start">375,621 parameters · 1.5&nbsp;MB · 5 output channels at stride 2 · block height shows resolution, depth illustrative</text>
     </svg>
   </div>
   <figcaption><span class="fig">Fig. 3</span> SpermNet. A U-shaped fully convolutional network whose decoder stops at stride 2, with CenterNet-style heads. The input stacks the frame, its difference from the clip's temporal median (which removes static background and debris) and the temporal gradient.</figcaption>
 </figure>
 <ul class="ticks">
-  <li><b>Size:</b> 375,621 parameters, 53 times fewer than YOLO11m (20.05 M), in a 1.5 MB file.</li>
+  <li><b>Size:</b> 375,621 parameters, 53 times fewer than YOLO11m (20.05 M), in a 1.5&nbsp;MB file.</li>
   <li><b>Training:</b> focal-type loss on the heatmap and L1 on size and offset, about 17 minutes per model on two CPU cores.</li>
   <li><b>Output:</b> decoding applies 3×3 peak suppression, adds the sub-pixel offset and reads the size at the peak. Sub-pixel centroids matter because velocity differentiates position noise.</li>
   <li><b>Tracking:</b> detections are linked online. Each track predicts its next position from its recent motion, and detections are assigned inside a distance gate by linear assignment. No appearance network.</li>
@@ -306,18 +292,17 @@
 </section>
 <section class="chapter wrap" aria-labelledby="c05">
   <div class="section-head">
-    <p class="label">05</p>
     <h2 id="c05">Scale, kinematics and grading</h2>
   </div>
   <div class="chapter-body">
 
-<p>Velocities in µm/s depend on the scale in micrometres per pixel. The engine takes it from a stage-micrometer calibration measured in the console, or from a value the laboratory enters; for this microscope the laboratory's calibration is 0.827 µm/px. Only when neither exists does it estimate the scale from the specimen, from the median detected head length taken as 9.23 µm (the detector's box includes the phase halo).</p>
-<p>That estimate is a last resort. Head size differs between men (median head area per recording from 63.9 to 103.1 px²), so even with its best reference length it leaves a spread of 7.1% RMS between recordings, 18% at worst. Version 1 used a textbook 4.7 µm head length, which put the scale at about half its calibrated value. Under an estimated scale the engine still reports motility, but withholds the a/b split, which depends on an absolute speed boundary.</p>
+<p>Velocities in µm/s depend on the scale in micrometres per pixel. The engine takes it from a stage-micrometer calibration measured in the console, or from a value the laboratory enters; for this microscope the laboratory's calibration is 0.827&nbsp;µm/px. Only when neither exists does it estimate the scale from the specimen, from the median detected head length taken as 9.23&nbsp;µm (the detector's box includes the phase halo).</p>
+<p>That estimate is a last resort. Head size differs between men (median head area per recording from 63.9 to 103.1 px²), so even with its best reference length it leaves a spread of 7.1% RMS between recordings, 18% at worst. Version 1 used a textbook 4.7&nbsp;µm head length, which put the scale at about half its calibrated value. Under an estimated scale the engine still reports motility, but withholds the a/b split, which depends on an absolute speed boundary.</p>
 <h3>Conventions, stated and measured</h3>
 <p>The parameters are the standard ones (VCL, VSL, VAP, LIN, STR, WOB, ALH, BCF), but their values depend on conventions that CASA papers rarely state. I fixed each one explicitly, then measured what it is worth by re-measuring the 45 recordings from the same tracks with that one convention changed.</p>
 <ul class="ticks">
   <li><b>Average path:</b> a three-point running mean, truncated at the ends. ALH is the largest distance between the path and the average path.</li>
-  <li><b>Jitter dead band:</b> a position moves only when the detection leaves a 0.3 px circle. A static head's sub-pixel centre otherwise wanders enough to read as a few µm/s of VCL.</li>
+  <li><b>Jitter dead band:</b> a position moves only when the detection leaves a 0.3&nbsp;px circle. A static head's sub-pixel centre otherwise wanders enough to read as a few µm/s of VCL.</li>
   <li><b>Minimum track:</b> 10 points. Shorter fragments, 24% of all tracker tracks, are dropped, and gaps inside a track are interpolated so a missed frame does not shorten the path.</li>
 </ul>
 <figure class="plate">
@@ -339,13 +324,13 @@
 <caption>Grading rule, per track</caption>
 <thead><tr><th scope="col">VCL</th><th scope="col">STR below 80%</th><th scope="col">STR 80% or more</th></tr></thead>
 <tbody>
-<tr><th scope="row">below 10 µm/s</th><td>d, immotile</td><td>d, immotile</td></tr>
-<tr><th scope="row">10 to 15 µm/s</th><td>c, slow</td><td>c, slow</td></tr>
-<tr><th scope="row">15 to 35 µm/s</th><td>c, non-progressive</td><td>b, slow progressive</td></tr>
-<tr><th scope="row">35 µm/s or more</th><td>b, rapid</td><td>a, rapid progressive</td></tr>
+<tr><th scope="row">below 10&nbsp;µm/s</th><td>d, immotile</td><td>d, immotile</td></tr>
+<tr><th scope="row">10 to 15&nbsp;µm/s</th><td>c, slow</td><td>c, slow</td></tr>
+<tr><th scope="row">15 to 35&nbsp;µm/s</th><td>c, non-progressive</td><td>b, slow progressive</td></tr>
+<tr><th scope="row">35&nbsp;µm/s or more</th><td>b, rapid</td><td>a, rapid progressive</td></tr>
 </tbody></table></div>
 <figure class="plate">
-  <a href="../img/spermnet-grading.webp"><img src="../img/spermnet-grading.webp" width="1225" height="649" loading="lazy" alt="Scatter of 1,125 tracks on the VCL against STR plane, coloured by grade, with the boundaries at 10, 15 and 35 µm/s and STR 80%."></a>
+  <a href="../img/spermnet-grading.webp"><img src="../img/spermnet-grading.webp" width="1225" height="649" loading="lazy" alt="Scatter of 1,125 tracks on the VCL against STR plane, coloured by grade, with the boundaries at 10, 15 and 35&nbsp;µm/s and STR 80%."></a>
   <figcaption><span class="fig">Fig. 5</span> The grading plane with the 1,125 tracks of one strong field.</figcaption>
 </figure>
 
@@ -353,7 +338,6 @@
 </section>
 <section class="chapter wrap" aria-labelledby="c06">
   <div class="section-head">
-    <p class="label">06</p>
     <h2 id="c06">Results</h2>
   </div>
   <div class="chapter-body">
@@ -385,7 +369,7 @@
 </div>
 <h3>Tracking</h3>
 <div class="table-scroll" tabindex="0"><table class="results wide">
-<caption>Tracking against 46 manual identities, 8 px tolerance, same tracker</caption>
+<caption>Tracking against 46 manual identities, 8&nbsp;px tolerance, same tracker</caption>
 <thead><tr><th scope="col">System</th><th scope="col">MOTA</th><th scope="col">IDF1</th><th scope="col">HOTA</th><th scope="col">Mean track length</th></tr></thead>
 <tbody>
 <tr class="hl"><th scope="row">SpermNet + motion tracker</th><td>0.440</td><td>0.724</td><td>0.460</td><td>21.0 of 25 frames</td></tr>
@@ -395,11 +379,11 @@
 <p>Association is not the bottleneck; detection is. On a synthetic benchmark matched to the data's motion statistics, the motion tracker reaches HOTA 0.963. On real identities, three trackers differ by at most 0.011 HOTA, while changing the detector moves IDF1 from 0.621 to 0.724. Offline min-cost-flow linking brings no gain for 122 times the run time, and halving precision costs 4.5 times more HOTA than halving recall.</p>
 <div class="bars" role="group" aria-label="CPU time per 25-frame clip, two cores (log scale)">
 <p class="bars-title">CPU time per 25-frame clip, two cores (log scale)</p>
-<div class="row"><span>Classical baseline</span><span class="track" aria-hidden="true"><span class="fill" style="width:16.3%"></span></span><span class="val">0.45 s</span></div>
-<div class="row"><span>SpermNet + tracker, version 2</span><span class="track" aria-hidden="true"><span class="fill" style="width:50.4%"></span></span><span class="val">10.4 s</span></div>
-<div class="row hl"><span>Complete analysis, version 4</span><span class="track" aria-hidden="true"><span class="fill" style="width:41.6%"></span></span><span class="val">4.6 s</span></div>
-<div class="row"><span>YOLO11m + DeepSORT</span><span class="track" aria-hidden="true"><span class="fill" style="width:82.3%"></span></span><span class="val">195 s</span></div>
-<p class="note">Version 4, measured on 9 recordings from all three groups (Intel Xeon 2.3 GHz, 2 vCPUs): 2.5 s detection, 1.1 s tracking and 0.6 s input preparation on average, 3.2 to 7.4 s per clip depending on density. The other bars come from the earlier two-core measurements. The classical baseline is fast but over-fragments: 846 tracks per clip against 321.</p>
+<div class="row"><span>Classical baseline</span><span class="track" aria-hidden="true"><span class="fill" style="width:16.3%"></span></span><span class="val">0.45&nbsp;s</span></div>
+<div class="row"><span>SpermNet + tracker, version 2</span><span class="track" aria-hidden="true"><span class="fill" style="width:50.4%"></span></span><span class="val">10.4&nbsp;s</span></div>
+<div class="row hl"><span>Complete analysis, version 4</span><span class="track" aria-hidden="true"><span class="fill" style="width:41.6%"></span></span><span class="val">4.6&nbsp;s</span></div>
+<div class="row"><span>YOLO11m + DeepSORT</span><span class="track" aria-hidden="true"><span class="fill" style="width:82.3%"></span></span><span class="val">195&nbsp;s</span></div>
+<p class="note">Version 4, measured on 9 recordings from all three groups (Intel Xeon 2.3 GHz, 2 vCPUs): 2.5&nbsp;s detection, 1.1&nbsp;s tracking and 0.6&nbsp;s input preparation on average, 3.2 to 7.4&nbsp;s per clip depending on density. The other bars come from the earlier two-core measurements. The classical baseline is fast but over-fragments: 846 tracks per clip against 321.</p>
 </div>
 <h3>45 clinical recordings</h3>
 <p>The complete pipeline was run unchanged on all 45 recordings: three fields from each of 15 samples that the laboratory had classed as weak, medium or strong. Every endpoint rises from weak to strong samples, and the groups overlap, as a classification made by eye should.</p>
@@ -438,15 +422,14 @@
 </section>
 <section class="chapter wrap" aria-labelledby="c07">
   <div class="section-head">
-    <p class="label">07</p>
     <h2 id="c07">The Andrology Console</h2>
   </div>
   <div class="chapter-body">
 
 <p>The engine ships inside a desktop application so a laboratory can use it on its own PC, with records kept on that workstation.</p>
-<figure class="diagram">
+<figure class="diagram" style="--w: 1140px">
   <div class="scroll" tabindex="0" role="region" aria-label="Architecture of the Andrology Console desktop application, scrolls sideways on small screens">
-    <svg viewBox="0 0 1140 300" role="img" aria-labelledby="dg4-t">
+    <svg width="1140" height="300" viewBox="0 0 1140 300" role="img" aria-labelledby="dg4-t">
       <title id="dg4-t">Architecture of the Andrology Console desktop application</title>
       <defs><marker id="dg4-a" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="dg-arrow" d="M0,0 L8,4 L0,8 z"/></marker><marker id="dg4-am" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="dg-arrow mark" d="M0,0 L8,4 L0,8 z"/></marker></defs>
       <rect class="dg-box" x="10" y="40" width="230" height="120" rx="2"/>
@@ -487,7 +470,7 @@
 </figure>
 <ul class="ticks">
   <li><b>ONNX with verified parity:</b> on real recordings the ONNX export gives identical detections in every frame, with a maximum centre difference of 6.1 × 10⁻⁵ px. Peak suppression and decoding are re-implemented in NumPy.</li>
-  <li><b>A smaller installer:</b> dropping PyTorch (1.2 GB on disk to run a 1.5 MB model) took the installer from about 1.7 GB to 450 MB.</li>
+  <li><b>A smaller installer:</b> dropping PyTorch (1.2&nbsp;GB on disk to run a 1.5&nbsp;MB model) took the installer from about 1.7&nbsp;GB to 450&nbsp;MB.</li>
   <li><b>Refuse rather than guess:</b> every analysis is stamped with the thresholds and scale it was graded under; quantities that depend on an unknown scale are withheld, and the application never updates itself, so a measurement cannot change between samples without a decision.</li>
   <li><b>An overlay that matches the numbers:</b> the review video draws only the tracks the result counts. Tracks and head positions are stored per field, so a field can be excluded, or a sample restated under a new calibration, without re-running the detector, and the overlay is redrawn in the new grades.</li>
   <li><b>Security:</b> roles and sessions, a hash-chained audit log, and three rounds of security review (find, fix, re-attack the fixes), each leaving regression tests.</li>
@@ -528,7 +511,6 @@
 </section>
 <section class="chapter wrap" aria-labelledby="c08">
   <div class="section-head">
-    <p class="label">08</p>
     <h2 id="c08">Limits and what comes next</h2>
   </div>
   <div class="chapter-body">
@@ -536,7 +518,7 @@
   <li>Labels come from one annotator over a small area (1,349 heads in 48 patches, one 320×320 tracking window).</li>
   <li>The 45 recordings come from one laboratory and one microscope, and each lasts one second. Field-to-field agreement measures precision, not accuracy: a bias shared by every field would not show in it.</li>
   <li>The YOLO baselines were not retrained per fold under the same budget.</li>
-  <li>At 25 fps ALH and BCF are under-sampled and are best read as relative measures.</li>
+  <li>At 25&nbsp;fps ALH and BCF are under-sampled and are best read as relative measures.</li>
   <li>The detector does not transfer to bright-field optics. Retraining on several microscopes, external validation on phase-contrast data from other laboratories and a second annotator are still to do. The system is not presented as clinically validated.</li>
 </ul>
 <p>The current version is written up as a single-author paper, <a href="../papers/spermnet.pdf"><em>SpermNet: CPU-only detection, tracking and kinematic grading of human sperm motility in phase-contrast video</em></a> (PDF, 6 pages).</p>
@@ -546,27 +528,18 @@
 <nav class="pager wrap" aria-label="Other projects"><span></span><a class="next" href="oge.html"><span>Next →</span><b>On-premise GenAI platform</b></a></nav>
 </main>
 
-<footer class="contact" id="contact">
-  <div class="wrap">
-    <p class="label">Contact</p>
-    <p class="contact-line">For an internship from February 2027, write to <a href="mailto:djoudelhak@gmail.com">djoudelhak@gmail.com</a>. I answer in French or English.</p>
-    <ul class="contact-links">
-      <li><a href="https://www.linkedin.com/in/djoud-el-hak-belkhir-055977223/" rel="noopener">LinkedIn</a></li>
-      <li><a href="https://github.com/djihad-elhak" rel="noopener">GitHub</a></li>
-      <li><a href="https://www.kaggle.com/djihadelhakbelkhir" rel="noopener">Kaggle</a></li>
+<footer class="site-footer wrap">
+  <div class="foot">
+    <p>Djoud El Hak Belkhir, 2026</p>
+    <ul>
+      <li><a href="../cv.html">CV</a></li><li><a href="mailto:djoudelhak@gmail.com">Email</a></li>
+      <li><a href="https://github.com/djihad-elhak" rel="me noopener">GitHub</a></li>
+      <li><a href="https://www.linkedin.com/in/djoud-el-hak-belkhir-055977223/" rel="me noopener">LinkedIn</a></li>
+      <li><a href="https://www.kaggle.com/djihadelhakbelkhir" rel="me noopener">Kaggle</a></li>
+      <li><button class="theme-toggle" type="button">Theme: system</button></li>
     </ul>
-    <p class="colophon">Set in Newsreader and IBM Plex. No cookies, no tracking.</p>
   </div>
 </footer>
-<script>
-document.querySelectorAll("button[data-t]").forEach(function (b) {
-  b.addEventListener("click", function () {
-    var v = document.getElementById(b.dataset.v);
-    v.currentTime = Number(b.dataset.t);
-    v.play();
-  });
-});
-</script>
-
+<script src="../site.js" defer></script>
 </body>
 </html>
