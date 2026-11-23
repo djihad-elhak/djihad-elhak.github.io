@@ -5,39 +5,29 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ViT-RealWaste and TrashGo, Djoud El Hak Belkhir</title>
 <meta name="description" content="A leakage-aware ViT vs CNN benchmark on RealWaste, and TrashGo, a Flutter app that classifies waste on the phone.">
+<meta name="author" content="Djoud El Hak Belkhir">
+<link rel="canonical" href="https://djihad-elhak.github.io/projects/trashgo.html">
 <meta property="og:title" content="ViT-RealWaste and TrashGo, Djoud El Hak Belkhir">
 <meta property="og:description" content="A leakage-aware ViT vs CNN benchmark on RealWaste, and TrashGo, a Flutter app that classifies waste on the phone.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://djihad-elhak.github.io/projects/trashgo.html">
 <meta property="og:image" content="https://djihad-elhak.github.io/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#fdfdfc" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#111110" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
-<link rel="preload" href="../fonts/newsreader-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="../fonts/ibm-plex-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
+<script>try{var t=localStorage.getItem("theme");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
 <link rel="stylesheet" href="../style.css">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-
-<header class="masthead">
-  <div class="wrap masthead-row">
-    <a class="masthead-name" href="../#top">Djoud El Hak Belkhir</a>
-    <nav aria-label="Sections">
-      <ul>
-        <li><a href="../#experience">Experience</a></li>
-        <li><a href="../#work">Projects</a></li>
-        <li><a href="../#education">Education</a></li>
-        <li><a href="../#skills">Skills</a></li>
-        <li><a href="../#contact">Contact</a></li>
-      </ul>
-    </nav>
-    <p class="masthead-meta">Case study 2.4</p>
-  </div>
-</header>
-
 <main id="main">
 <header class="page-head wrap">
-  <p class="crumbs"><a href="../#work">Selected work</a><span aria-hidden="true">/</span><span>2.4</span></p>
+  <a class="back" href="../"><span aria-hidden="true">←</span> Djoud El Hak Belkhir</a>
   <div class="title-row"><h1>ViT-RealWaste and TrashGo</h1></div>
   <p class="standfirst">A leakage-aware benchmark of a Vision Transformer against three CNNs for landfill waste classification, and the Flutter app that runs the classifier on the phone and turns a correct photo into a reward.</p>
   <dl class="factsheet">
@@ -49,7 +39,7 @@
 </header>
 
 <div class="wrap">
-<figure class="phones">
+<figure class="phones hero-figure">
   <ul>
     <li><a href="../img/trashgo-signin.webp"><img src="../img/trashgo-signin.webp" width="173" height="376" loading="lazy" alt="Sign-in screen with Google and email options."></a></li>
     <li><a href="../img/trashgo-home.webp"><img src="../img/trashgo-home.webp" width="209" height="454" loading="lazy" alt="Home screen with a start claiming button, claims, streak and rank."></a></li>
@@ -62,7 +52,6 @@
 
 <section class="chapter wrap" aria-labelledby="c01">
   <div class="section-head">
-    <p class="label">01</p>
     <h2 id="c01">The question and the product</h2>
   </div>
   <div class="chapter-body">
@@ -74,14 +63,13 @@
 </section>
 <section class="chapter wrap" aria-labelledby="c02">
   <div class="section-head">
-    <p class="label">02</p>
     <h2 id="c02">ViT-RealWaste, the benchmark</h2>
   </div>
   <div class="chapter-body">
 
-<figure class="diagram">
+<figure class="diagram" style="--w: 1140px">
   <div class="scroll" tabindex="0" role="region" aria-label="From dataset to phone, scrolls sideways on small screens">
-    <svg viewBox="0 0 1140 236" role="img" aria-labelledby="dg8-t">
+    <svg width="1140" height="236" viewBox="0 0 1140 236" role="img" aria-labelledby="dg8-t">
       <title id="dg8-t">From dataset to phone</title>
       <defs><marker id="dg8-a" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="dg-arrow" d="M0,0 L8,4 L0,8 z"/></marker><marker id="dg8-am" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="dg-arrow mark" d="M0,0 L8,4 L0,8 z"/></marker></defs>
       <rect class="dg-group" x="4" y="28" width="960" height="156" rx="3"/><text class="dg-g" x="12" y="22">research, Kaggle GPU</text>
@@ -168,14 +156,13 @@
 </section>
 <section class="chapter wrap" aria-labelledby="c03">
   <div class="section-head">
-    <p class="label">03</p>
     <h2 id="c03">TrashGo, the app</h2>
   </div>
   <div class="chapter-body">
 
-<figure class="diagram">
+<figure class="diagram" style="--w: 1140px">
   <div class="scroll" tabindex="0" role="region" aria-label="Claiming flow in TrashGo, scrolls sideways on small screens">
-    <svg viewBox="0 0 1140 262" role="img" aria-labelledby="dg9-t">
+    <svg width="1140" height="262" viewBox="0 0 1140 262" role="img" aria-labelledby="dg9-t">
       <title id="dg9-t">Claiming flow in TrashGo</title>
       <defs><marker id="dg9-a" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="dg-arrow" d="M0,0 L8,4 L0,8 z"/></marker><marker id="dg9-am" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="dg-arrow mark" d="M0,0 L8,4 L0,8 z"/></marker></defs>
       <rect class="dg-box" x="10" y="70" width="130" height="90" rx="2"/>
@@ -227,7 +214,7 @@
 <ul class="ticks">
   <li><b>Stack:</b> Flutter and Dart, Riverpod, GoRouter, Firebase Auth and Firestore, <code>onnxruntime_v2</code> on the CPU, flutter_map with OpenStreetMap, Cloudinary for photos.</li>
   <li><b>One contract between notebook and app:</b> NCHW float32 input, resize 256 then centre crop 224, ImageNet mean and standard deviation, the training class order, softmax before any threshold. If one line changes, the others change with it.</li>
-  <li><b>Shipped model:</b> the app currently ships the DenseNet121 export, the checkpoint the notebook validated end to end in ONNX Runtime; it is not one of the four models in the comparison. Target: under 800 ms per inference on a mid-range Android phone.</li>
+  <li><b>Shipped model:</b> the app currently ships the DenseNet121 export, the checkpoint the notebook validated end to end in ONNX Runtime; it is not one of the four models in the comparison. Target: under 800&nbsp;ms per inference on a mid-range Android phone.</li>
   <li><b>Rewards:</b> base coins grow with how rare a category is in the audit mix, with bonuses for the first claim of the day and for 3- and 7-day streaks.</li>
 </ul>
 <figure class="phones">
@@ -247,18 +234,19 @@
 <nav class="pager wrap" aria-label="Other projects"><a class="prev" href="kd-vlm.html"><span>← Previous</span><b>Feature distillation of MobileVLM</b></a><a class="next" href="dz-tabib.html"><span>Next →</span><b>DZ-Tabib</b></a></nav>
 </main>
 
-<footer class="contact" id="contact">
-  <div class="wrap">
-    <p class="label">Contact</p>
-    <p class="contact-line">For an internship from February 2027, write to <a href="mailto:djoudelhak@gmail.com">djoudelhak@gmail.com</a>. I answer in French or English.</p>
-    <ul class="contact-links">
-      <li><a href="https://www.linkedin.com/in/djoud-el-hak-belkhir-055977223/" rel="noopener">LinkedIn</a></li>
-      <li><a href="https://github.com/djihad-elhak" rel="noopener">GitHub</a></li>
-      <li><a href="https://www.kaggle.com/djihadelhakbelkhir" rel="noopener">Kaggle</a></li>
+<footer class="site-footer wrap">
+  <div class="foot">
+    <p>Djoud El Hak Belkhir, 2026</p>
+    <ul>
+      <li><a href="../cv.html">CV</a></li><li><a href="mailto:djoudelhak@gmail.com">Email</a></li>
+      <li><a href="https://github.com/djihad-elhak" rel="me noopener">GitHub</a></li>
+      <li><a href="https://www.linkedin.com/in/djoud-el-hak-belkhir-055977223/" rel="me noopener">LinkedIn</a></li>
+      <li><a href="https://www.kaggle.com/djihadelhakbelkhir" rel="me noopener">Kaggle</a></li>
+      <li><button class="theme-toggle" type="button">Theme: system</button></li>
     </ul>
-    <p class="colophon">Set in Newsreader and IBM Plex. No cookies, no tracking.</p>
   </div>
 </footer>
+<script src="../site.js" defer></script>
 
 </body>
 </html>
