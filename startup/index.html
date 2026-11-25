@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Startup NomDeLaStartup</title>
+<style>
+  /* LaTeX font (Computer Modern), stored in ./fonts */
+  @font-face { font-family: "CMU Serif"; src: url("fonts/cmu-serif-500-roman.woff2") format("woff2"); font-weight: 400; font-display: swap; }
+  @font-face { font-family: "CMU Serif"; src: url("fonts/cmu-serif-500-italic.woff2") format("woff2"); font-weight: 400; font-style: italic; font-display: swap; }
+  @font-face { font-family: "CMU Serif"; src: url("fonts/cmu-serif-700-roman.woff2") format("woff2"); font-weight: 700; font-display: swap; }
+  :root { color-scheme: light dark; --ink: #111; --mute: #666; --line: #d9d9d9; --bg: #fff; }
+  @media (prefers-color-scheme: dark) { :root { --ink: #ececec; --mute: #9a9a9a; --line: #3a3a3a; --bg: #141414; } }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink);
+         font: 18px/1.6 "CMU Serif", "Latin Modern Roman", "Computer Modern", Georgia, serif; }
+  main { max-width: 760px; margin: 0 auto; padding: 56px 20px 64px; }
+  h1 { font-size: clamp(32px, 5vw, 42px); line-height: 1.15; text-align: center; margin: 0 0 40px; font-weight: 700; }
+  a { color: inherit; text-underline-offset: 3px; }
+  ol.main { list-style: none; counter-reset: s; padding: 0; margin: 0; }
+  ol.main > li { counter-increment: s; position: relative; padding: 22px 0 22px 2.2em; border-top: 1px solid var(--line); }
+  ol.main > li::before { content: counter(s) "."; position: absolute; left: 0; top: 22px; font-weight: 700; }
+  ol.main > li > b { font-size: 19px; }
+  .presentation { margin: 0; text-align: justify; hyphens: auto; }
+  .founders { margin: 10px 0 0; }
+  ol.sub { margin: 8px 0 0; padding-left: 1.6em; }
+  ol.sub li { padding: 3px 0; }
+  ol.sub li::marker { color: var(--mute); }
+  .tools { color: var(--mute); font-style: italic; }
+  .maint { border-top: 1px solid var(--line); padding-top: 22px; margin: 0; }
+</style>
+</head>
+<body>
+<main>
+
+  <!-- ============ HOW TO UPDATE THIS PAGE ============
+       Each new assignment = add ONE new <li> at the end of the right list.
+       Never delete old versions: they stay as archives.
+       Put PDFs, videos and the .java file in the files/ folder next to this page, or use a full URL.
+       ================================================= -->
+
+  <h1>Startup NomDeLaStartup</h1>
+
+  <ol class="main">
+
+    <!-- 1. Presentation of the startup and the application (about 5 lines) -->
+    <li>
+      <p class="presentation">
+        NomDeLaStartup solves the problem of … for … .
+        Our application lets users … by … .
+        Unlike existing solutions, it … .
+        It is a PHP + Oracle web application hosted at PUIO.
+        Our business model is based on … .
+      </p>
+      <p class="founders">Founders: Djoud El Hak Belkhir, Teammate 2, Teammate 3, Teammate 4</p>
+    </li>
+
+    <!-- 2. Slides: one single PDF with all 23 slides per version -->
+    <li>
+      <b>Transparents:</b>
+      <ol class="sub">
+        <!-- <li><a href="files/nomdelastartup-12-janvier.pdf" download>version 12 janvier rendu 0</a></li> -->
+        <li>…</li>
+      </ol>
+    </li>
+
+    <!-- 3. Application: PHP + Oracle website hosted at PUIO -->
+    <li>
+      <b>Access the application:</b>
+      <ol class="sub">
+        <!-- <li><a href="http://.../nomdelastartup.php">version 22 janvier rendu 1</a></li> -->
+        <li>…</li>
+      </ol>
+    </li>
+
+    <!-- 4. Video: downloadable; say in parentheses which video and slides software and screen layout you used -->
+    <li>
+      <b>A video:</b>
+      <ol class="sub">
+        <!-- <li><a href="files/nomdelastartup-video-v1.mp4" download>version 29 janvier rendu 2</a>
+                  <span class="tools">(video: OBS Studio; slides: PowerPoint; screen: slide full screen, speaker in a small window bottom right)</span></li> -->
+        <li>…</li>
+      </ol>
+    </li>
+
+    <!-- 5. Java code of the principle (text file). Must stay on the page even if the link is empty. -->
+    <li>
+      <b>Java code of the principle</b>
+      <ol class="sub">
+        <!-- <li><a href="files/principle.java">version 22 janvier rendu 1</a></li> -->
+        <li>…</li>
+      </ol>
+    </li>
+
+  </ol>
+
+  <p class="maint">Etudiant responsable de maintenir cette page : Djoud El Hak Belkhir</p>
+
+</main>
+</body>
+</html>
